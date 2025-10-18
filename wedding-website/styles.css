@@ -280,6 +280,24 @@ footer .title {
     display: block;
 }
 
+/* Dress Code Page */
+.dress-code-section {
+    margin-bottom: 3rem;
+}
+
+.dress-code-image {
+    width: 100%;
+    text-align: center;
+}
+
+.dress-code-image img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
 /* Travel Page */
 .travel-hero {
     padding: 2rem;
