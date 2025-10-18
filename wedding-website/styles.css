@@ -65,6 +65,35 @@ nav {
     border-bottom-color: #E47B6A;
 }
 
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.lang-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    padding: 0.25rem 0.5rem;
+}
+
+.lang-link:hover {
+    color: #E47B6A;
+}
+
+.lang-link.active {
+    color: #E47B6A;
+    font-weight: 600;
+}
+
+.lang-separator {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
 .mobile-menu-btn {
     display: none;
 }
@@ -507,6 +536,12 @@ footer .title {
         display: flex;
         flex-direction: column;
         gap: 0;
+    }
+    
+    .language-switcher {
+        margin-left: 0;
+        margin-top: 1rem;
+        justify-content: center;
     }
 
     .mobile-menu-btn {

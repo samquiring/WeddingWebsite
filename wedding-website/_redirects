@@ -1,0 +1,7 @@
+# Language-based redirects
+# Redirect users to German version if they have German browser language preference
+/ /de/ 302 Language=de
+/index.html /de/ 302 Language=de
+
+# Fallback to English for all other languages
+/ /index.html 200
