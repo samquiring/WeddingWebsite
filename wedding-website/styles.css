@@ -280,6 +280,77 @@ footer .title {
     display: block;
 }
 
+/* Travel Page */
+.travel-hero {
+    padding: 2rem;
+    text-align: center;
+    background: #f9fafb;
+}
+
+.travel-section {
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.travel-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.travel-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.travel-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.travel-subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.travel-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.travel-content p {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.travel-subheading {
+    font-weight: 600;
+    color: #333;
+    margin-top: 2rem;
+}
+
+.hotel-links {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.hotel-links p {
+    margin-bottom: 1rem;
+}
+
+.hotel-links a {
+    color: #E47B6A;
+    word-break: break-all;
+}
+
+.hotel-links a:hover {
+    text-decoration: underline;
+}
+
 /* Placeholder pages */
 .placeholder-page {
     min-height: 60vh;
