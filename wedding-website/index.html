@@ -144,8 +144,8 @@
                         </p>
                         
                         <div class="btn-group">
-                            <button class="btn">Map</button>
-                            <button class="btn">Add to calendar</button>
+                            <a href="https://maps.google.com/?q=Mareducato,+Savelletri,+Italy" target="_blank" class="btn">Map</a>
+                            <button class="btn" onclick="addToCalendar('welcome')">Add to calendar</button>
                         </div>
                     </div>
                 </div>
@@ -174,7 +174,8 @@
                         </p>
                         
                         <div class="btn-group">
-                            <button class="btn">Add to calendar</button>
+                            <a href="https://maps.google.com/?q=Masseria+Alchimia,+Fasano,+Italy" target="_blank" class="btn">Map</a>
+                            <button class="btn" onclick="addToCalendar('wedding')">Add to calendar</button>
                         </div>
                     </div>
                 </div>
@@ -192,7 +193,7 @@
                     
                     <div>
                         <div class="btn-group">
-                            <button class="btn">Add to calendar</button>
+                            <button class="btn" onclick="addToCalendar('beach')">Add to calendar</button>
                         </div>
                     </div>
                 </div>
@@ -209,6 +210,29 @@
         </div>
 
         <div class="section">
+            <!-- Weather Widget -->
+            <div class="weather-widget">
+                <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Weather in Puglia</h2>
+                <p class="weather-subtitle">Historical weather for late August</p>
+                <div class="weather-container">
+                    <div class="weather-current">
+                        <div class="weather-location">Fasano, Italy</div>
+                        <div class="weather-temp" id="currentTemp">--°C</div>
+                        <div class="weather-desc" id="weatherDesc">Loading...</div>
+                        <div class="weather-details">
+                            <span>Typical Range: <span id="tempRange">--°C</span></span>
+                            <span>Avg. Humidity: <span id="humidity">--%</span></span>
+                            <span>Chance of Rain: <span id="rainChance">--%</span></span>
+                        </div>
+                    </div>
+                    <div class="weather-forecast" id="weatherForecast">
+                        <!-- Wedding event forecast will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="weather-note">
+                    <p>Based on historical August data for Fasano (source: WeatherSpark.com). Perfect weather for a destination wedding! 🌞</p>
+                </div>
+            </div>
             <!-- Flight Section -->
             <div class="travel-section">
                 <div class="travel-icon">✈️</div>
