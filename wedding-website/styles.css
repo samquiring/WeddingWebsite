@@ -280,6 +280,39 @@ footer .title {
     display: block;
 }
 
+/* FAQs Page */
+.faq-intro {
+    text-align: center;
+    color: #4b5563;
+    margin-bottom: 5rem;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    padding: 0 1rem;
+}
+
+.faq-item {
+    margin-bottom: 5rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+}
+
+.faq-question {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    line-height: 1.3;
+}
+
+.faq-answer {
+    color: #333;
+    line-height: 2;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 1.05rem;
+}
+
 /* Things To Do Page */
 .things-hero {
     padding: 2rem;
