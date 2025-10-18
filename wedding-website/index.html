@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julie & Samuel - Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="mobile-nav-header">
+            <span class="mobile-nav-title">Julie & Samuel</span>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+        <div class="nav-container" id="navContainer">
+            <button class="nav-link active" onclick="showPage('home')">Home</button>
+            <button class="nav-link" onclick="showPage('schedule')">Schedule</button>
+            <button class="nav-link" onclick="showPage('travel')">Travel</button>
+            <button class="nav-link" onclick="showPage('dress-code')">Dress Code</button>
+            <button class="nav-link" onclick="showPage('things')">Things To Do</button>
+            <button class="nav-link" onclick="showPage('faqs')">FAQs</button>
+            <button class="nav-link" onclick="showPage('rsvp')">RSVP</button>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <div class="hero" style="background-image: url('https://i.imgur.com/qIB4DRq.jpeg'); background-size: cover; background-position: center;">
+            <!-- TO ADD YOUR HERO IMAGE: Replace YOUR_IMAGE_ID above with your actual Imgur ID -->
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Julie & Samuel</h1>
+            </div>
+        </div>
+
+        <!-- Names and Date Section -->
+        <div class="section text-center">
+            <div class="names-section">
+                <h2>Samuel<br/>Quiring</h2>
+                <span class="ampersand">&</span>
+                <h2>Julie<br/>Sobirey</h2>
+            </div>
+            
+            <div style="margin: 4rem 0;">
+                <h3 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 1rem;">August 25, 2026</h3>
+                <p style="font-size: 1.125rem; color: #4b5563;">Masseria Alchimia, Puglia, Italy</p>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="countdown-label">minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="countdown-label">seconds</div>
+                </div>
+            </div>
+
+            <button class="btn">RSVP</button>
+        </div>
+
+        <!-- Where it all began -->
+        <div class="section section-gray">
+            <h2 class="font-serif text-salmon text-center" style="font-size: 3rem; margin-bottom: 4rem;">Where it all began...</h2>
+            
+            <div class="story-text">
+                <p>In summer 2022 two people from different sides of the world had the same idea (at least almost the same idea):</p>
+            </div>
+            
+            <div class="story-text">
+                <p>Just graduated from college and with a long summer ahead of him, Sam decided to do a 2-month backpacking trip to South East Asia. No plans, no tickets, just vibes.</p>
+            </div>
+            
+            <div class="story-text">
+                <p>A couple thousand miles away, Julie was eagerly planning her 2-week vacation to the same destination. Of course, with a detailed itinerary, a 20€ budget per day - and the plan to "focus on herself" during her first ever solo trip.</p>
+            </div>
+            
+            <div class="story-text">
+                <p>So, on the evening of August 27, these two young travellers found themselves in Bangkok's China Town. Sam, unwillingly stuck in Bangkok, after he was denied entry to Vietnam (as said before no plans just vibes). Julie, starting her long awaited trip and mustering the courage to make some new hostel friends. And both deciding to check out luk hostel's rooftop bar. Julie was looking for a friendly face. Sam was looking to get one drink and go to bed. But alas, after two tuk tuk rides, several shared buckets, and someone lying about their age, the two found themselves in the women's restroom. One down horrendous, the other poorly playing the ukulele.</p>
+            </div>
+            
+            <div class="story-text">
+                <p>What followed were two weeks of endless adventures: Sam following Julie's strict itinerary with 25k steps and only one proper meal per day. Julie coming to terms with extending her 20€ daily budget and slowly realizing, that she would not get the solo trip she had planned, but maybe something even better.</p>
+            </div>
+            
+            <div class="story-text">
+                <p>What both of them didn't realize was that this little Thai romance was gonna turn their lives upside down. A week after Julie's return to Germany, they booked her first of many flights to Seattle. And this was just the beginning. While doing long distance for over 1.5 years, Julie fell in love with Sam's home (including Lucky Boy's breakfast burritos, the abundance of Starbucks locations, and of course his incredible family and friends). Sam started learning German and got a taste of German culture (and German beer) at the Cologne Karneval and Oktoberfest in Munich.</p>
+            </div>
+            
+            <div class="story-text">
+                <p>Fast forward to 2024, a lot had changed. The days of daily FaceTime calls, 10-hour plane rides and US border anxiety were finally over. Sam moved to Germany and the two embarked on their biggest adventure so far - moving in together in the exciting city of Berlin.</p>
+            </div>
+
+            <!-- Proposal Photo -->
+            <img src="https://i.imgur.com/axOxjHq.jpeg" alt="The Proposal" style="width: 100%; max-width: 800px; margin: 3rem auto; display: block; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        </div>
+    </div>
+
+    <!-- SCHEDULE PAGE -->
+    <div id="schedule" class="page">
+        <div class="section">
+            <p class="schedule-intro">
+                We'd love for all our friends and family from around the world to have some time to get to know each other and connect - that's why we have planned some fun activities and events around our wedding day. Check out the schedule below to see what awaits you in Puglia, we can't wait to celebrate with you!
+            </p>
+
+            <!-- Monday, August 24 -->
+            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 3rem;">Monday, August 24, 2026</h2>
+            
+            <div class="event-card">
+                <div class="event-grid">
+                    <div>
+                        <h3 class="event-title">Welcome Party</h3>
+                        <p class="event-time">7:00 pm - 11:00 pm</p>
+                    </div>
+                    
+                    <div>
+                        <p class="event-location">Mareducato</p>
+                        <p class="event-location-sub">Savelletri, Italy</p>
+                        
+                        <p class="event-description">
+                            We will have an open bar with wine and beer accompanied by some finger food, so we would recommend you grab dinner beforehand.
+                        </p>
+                        
+                        <p class="event-description">
+                            For all our Cocktail/Aperol Spritz lovers: If you fancy something other than wine or beer, you are able to buy the drink of your choice at their regular bar.
+                        </p>
+                        
+                        <div class="btn-group">
+                            <button class="btn">Map</button>
+                            <button class="btn">Add to calendar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuesday, August 25 -->
+            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Tuesday, August 25, 2026</h2>
+            
+            <div class="event-card">
+                <div class="event-grid">
+                    <div>
+                        <h3 class="event-title">Wedding Celebration</h3>
+                        <p class="event-time">Tue, Aug 25, 2026, 4:00 pm - Wed, Aug 26, 2026, 2:00 am</p>
+                    </div>
+                    
+                    <div>
+                        <p class="event-location">Masseria Alchimia</p>
+                        <p class="event-location-sub">Fasano, Italy</p>
+                        
+                        <p class="event-description">
+                            Our wedding will be a mix of German and US wedding traditions. We will start the celebration with a symbolic ceremony in the olive grove of the Masseria, followed by an Apulian BBQ dinner and reception (with lots of dancing of course!).
+                        </p>
+                        
+                        <p class="event-description">
+                            The detailed program and activities planned for the day will remain a surprise for now...
+                        </p>
+                        
+                        <div class="btn-group">
+                            <button class="btn">Add to calendar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wednesday, August 26 -->
+            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Wednesday, August 26, 2026</h2>
+            
+            <div class="event-card">
+                <div class="event-grid">
+                    <div>
+                        <h3 class="event-title">Beach Day</h3>
+                        <p class="event-time">12:00 pm - 6:00 pm</p>
+                    </div>
+                    
+                    <div>
+                        <div class="btn-group">
+                            <button class="btn">Add to calendar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLACEHOLDER PAGES -->
+    <div id="travel" class="page">
+        <div class="placeholder-page">
+            <h2>Travel Information</h2>
+            <p>Content coming soon...</p>
+        </div>
+    </div>
+
+    <div id="dress-code" class="page">
+        <div class="placeholder-page">
+            <h2>Dress Code</h2>
+            <p>Content coming soon...</p>
+        </div>
+    </div>
+
+    <div id="things" class="page">
+        <div class="placeholder-page">
+            <h2>Things To Do</h2>
+            <p>Content coming soon...</p>
+        </div>
+    </div>
+
+    <div id="faqs" class="page">
+        <div class="placeholder-page">
+            <h2>FAQs</h2>
+            <p>Content coming soon...</p>
+        </div>
+    </div>
+
+    <div id="rsvp" class="page">
+        <div class="placeholder-page">
+            <h2>RSVP</h2>
+            <p>Content coming soon...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="title">Julie & Samuel</p>
+        <p>August 25, 2026 • Puglia, Italy</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
