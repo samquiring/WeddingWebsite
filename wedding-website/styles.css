@@ -462,6 +462,25 @@ nav {
     background: #e5e7eb !important;
 }
 
+/* Family Event Styling */
+.family-event {
+    border: 2px solid #E47B6A;
+    position: relative;
+}
+
+.family-badge {
+    background: #E47B6A;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
 /* Footer */
 footer {
     background: #f9fafb;

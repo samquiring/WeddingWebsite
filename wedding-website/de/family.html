@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julie & Samuel - Hochzeit (Familien-Zeitplan)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="mobile-nav-header">
+            <span class="mobile-nav-title">Julie & Samuel</span>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+        <div class="nav-container" id="navContainer">
+            <button class="nav-link" onclick="showPage('home')">Start</button>
+            <button class="nav-link active" onclick="showPage('schedule')">Zeitplan</button>
+            <button class="nav-link" onclick="showPage('travel')">Anreise</button>
+            <button class="nav-link" onclick="showPage('dress-code')">Dresscode</button>
+            <button class="nav-link" onclick="showPage('things')">Aktivitäten</button>
+            <button class="nav-link" onclick="showPage('faqs')">FAQs</button>
+            <button class="nav-link" onclick="showPage('rsvp')">RSVP</button>
+            <div class="language-switcher">
+                <a href="../family.html" class="lang-link">EN</a>
+                <span class="lang-separator">|</span>
+                <a href="#" class="lang-link active">DE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page">
+        <div class="section text-center">
+            <h1 class="font-serif text-salmon" style="font-size: 3rem; margin-bottom: 2rem;">Familien-Zeitplan</h1>
+            <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                Willkommen zum Familien-Zeitplan! Dieser enthält alle Veranstaltungen für unsere engsten Familienangehörigen.
+            </p>
+            <div class="btn-group" style="max-width: 300px; margin: 0 auto;">
+                <button class="btn" onclick="showPage('schedule')">Zeitplan anzeigen</button>
+                <a href="../de/index.html" class="btn" style="background: #f3f4f6 !important; color: #666 !important;">Allgemeiner Gäste-Zeitplan</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCHEDULE PAGE -->
+    <div id="schedule" class="page active">
+        <div class="section">
+            <p class="schedule-intro">
+                Wir freuen uns so sehr, mit unserer engsten Familie zu feiern! Hier ist der komplette Veranstaltungsplan, einschließlich unseres intimen Probe-Dinners. Wir können es kaum erwarten, diese besonderen Momente mit euch zu teilen!
+            </p>
+
+            <!-- Sunday, August 23 -->
+            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 3rem;">Sonntag, 23. August 2026</h2>
+            
+            <div class="event-card family-event">
+                <div class="event-grid">
+                    <div>
+                        <h3 class="event-title">Probe-Dinner</h3>
+                        <p class="event-time">19:00 - 22:00 Uhr</p>
+                        <div class="family-badge">Nur Familie</div>
+                    </div>
+                    
+                    <div>
+                        <p class="event-location">Pizzeria del Portico</p>
+                        <p class="event-location-sub">Fasano, Italien</p>
+                        
+                        <p class="event-description">
+                            Ein intimes Abendessen für unsere engsten Familienangehörigen, um sich vor der großen Feier kennenzulernen. Begleitet uns zu authentischer italienischer Pizza und guten Gesprächen!
+                        </p>
+                        
+                        <div class="btn-group">
+                            <a href="https://maps.google.com/?q=Pizzeria+del+Portico,+Fasano,+Italy" target="_blank" class="btn">Karte</a>
+                            <button class="btn" onclick="addToCalendar('rehearsal')">Zum Kalender hinzufügen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monday, August 24 -->
+            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Montag, 24. August 2026</h2>
+            
+            <div class="event-card">
+                <div class="event-grid">
+                    <div>
+                        <h3 class="event-title">Willkommensparty</h3>
+                        <p class="event-time">19:00 - 23:00 Uhr</p>
+                    </div>
+                    
+                    <div>
+                        <p class="event-location">Mareducato</p>
+                        <p class="event-location-sub">Savelletri, Italien</p>
+                        
+                        <p class="event-description">
+                            Wir haben eine offene Bar mit Wein und Bier sowie Fingerfood, daher empfehlen wir euch, vorher zu Abend zu essen.
+                        </p>
+                        
+                        <p class="event-description">
+                            Für alle Cocktail/Aperol Spritz-Liebhaber: Wenn ihr Lust auf etwas anderes als Wein oder Bier habt, könnt ihr das Getränk eurer Wahl an der regulären Bar kaufen.
+                        </p>
+                        
+                        <div class="btn-group">
+                            <a href="https://maps.google.com/?q=Mareducato,+Savelletri,+Italy" target="_blank" class="btn">Karte</a>
+                            <button class="btn" onclick="addToCalendar('welcome')">Zum Kalender hinzufügen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuesday, August 25 -->
+            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Dienstag, 25. August 2026</h2>
+            
+            <div class="event-card">
+                <div class="event-grid">
+                    <div>
+                        <h3 class="event-title">Hochzeitsfeier</h3>
+                        <p class="event-time">Di, 25. Aug 2026, 16:00 Uhr - Mi, 26. Aug 2026, 02:00 Uhr</p>
+                    </div>
+                    
+                    <div>
+                        <p class="event-location">Masseria Alchimia</p>
+                        <p class="event-location-sub">Fasano, Italien</p>
+                        
+                        <p class="event-description">
+                            Unsere Hochzeit wird eine Mischung aus deutschen und US-amerikanischen Hochzeitstraditionen sein. Wir beginnen die Feier mit einer symbolischen Zeremonie im Olivenhain der Masseria, gefolgt von einem apulischen BBQ-Dinner und Empfang (mit viel Tanzen natürlich!).
+                        </p>
+                        
+                        <p class="event-description">
+                            Das detaillierte Programm und die geplanten Aktivitäten für den Tag bleiben vorerst eine Überraschung...
+                        </p>
+                        
+                        <div class="btn-group">
+                            <a href="https://maps.google.com/?q=Masseria+Alchimia,+Fasano,+Italy" target="_blank" class="btn">Karte</a>
+                            <button class="btn" onclick="addToCalendar('wedding')">Zum Kalender hinzufügen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wednesday, August 26 -->
+            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Mittwoch, 26. August 2026</h2>
+            
+            <div class="event-card">
+                <div class="event-grid">
+                    <div>
+                        <h3 class="event-title">Strandtag</h3>
+                        <p class="event-time">12:00 - 18:00 Uhr</p>
+                    </div>
+                    
+                    <div>
+                        <div class="btn-group">
+                            <button class="btn" onclick="addToCalendar('beach')">Zum Kalender hinzufügen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRAVEL PAGE -->
+    <div id="travel" class="page">
+        <div class="section text-center">
+            <h2 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 2rem;">Anreise-Informationen</h2>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                Für detaillierte Anreise-Informationen besucht bitte die Haupt-Hochzeitswebsite.
+            </p>
+            <a href="../de/index.html#travel" class="btn">Anreise-Infos anzeigen</a>
+        </div>
+    </div>
+
+    <!-- DRESS CODE PAGE -->
+    <div id="dress-code" class="page">
+        <div class="section text-center">
+            <h2 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 2rem;">Dresscode</h2>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                Für Dresscode-Informationen besucht bitte die Haupt-Hochzeitswebsite.
+            </p>
+            <a href="../de/index.html#dress-code" class="btn">Dresscode anzeigen</a>
+        </div>
+    </div>
+
+    <!-- THINGS TO DO PAGE -->
+    <div id="things" class="page">
+        <div class="section text-center">
+            <h2 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 2rem;">Aktivitäten</h2>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                Für lokale Empfehlungen und Aktivitäten besucht bitte die Haupt-Hochzeitswebsite.
+            </p>
+            <a href="../de/index.html#things" class="btn">Aktivitäten anzeigen</a>
+        </div>
+    </div>
+
+    <!-- FAQS PAGE -->
+    <div id="faqs" class="page">
+        <div class="section text-center">
+            <h2 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 2rem;">FAQs</h2>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                Für häufig gestellte Fragen besucht bitte die Haupt-Hochzeitswebsite.
+            </p>
+            <a href="../de/index.html#faqs" class="btn">FAQs anzeigen</a>
+        </div>
+    </div>
+
+    <!-- RSVP PAGE -->
+    <div id="rsvp" class="page">
+        <div class="section text-center">
+            <h2 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 2rem;">RSVP</h2>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                Für RSVP-Informationen besucht bitte die Haupt-Hochzeitswebsite.
+            </p>
+            <a href="../de/index.html#rsvp" class="btn">Zu RSVP gehen</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="title">Julie & Samuel</p>
+        <p>25. August 2026 • Puglia, Italien</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.7;">Familien-Zeitplan</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

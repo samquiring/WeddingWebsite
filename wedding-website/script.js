@@ -111,6 +111,13 @@ function displayMockWeather() {
 // Calendar functionality
 function addToCalendar(eventType) {
     const events = {
+        'rehearsal': {
+            title: 'Julie & Samuel - Rehearsal Dinner',
+            start: '20260823T190000Z',
+            end: '20260823T220000Z',
+            location: 'Pizzeria del Portico, Fasano, Italy',
+            description: 'Intimate rehearsal dinner for close family members. Join us for authentic Italian pizza and good conversation before the big celebration!'
+        },
         'welcome': {
             title: 'Julie & Samuel - Welcome Party',
             start: '20260824T190000Z',
