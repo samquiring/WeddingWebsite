@@ -13,11 +13,16 @@ body {
 
 /* Typography */
 .font-serif {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Dancing Script', cursive;
 }
 
 .text-salmon {
     color: #E47B6A;
+}
+
+/* Make numbers smaller in dates */
+.date-number {
+    font-size: 0.75em;
 }
 
 .bg-salmon {
@@ -35,11 +40,11 @@ body {
 }
 
 .site-title {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Dancing Script', cursive;
     font-size: 2.5rem;
     color: #E47B6A;
     margin: 0;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* Navigation */
@@ -175,7 +180,7 @@ nav {
 }
 
 .section-gray {
-    background: #f9fafb;
+    background: #F0F9FF;
 }
 
 .text-center {
@@ -193,14 +198,14 @@ nav {
 
 .names-section h2 {
     font-size: 3.5rem;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Dancing Script', cursive;
     color: #E47B6A;
     line-height: 1.2;
 }
 
 .names-section .ampersand {
     font-size: 2rem;
-    color: #666;
+    color: #E47B6A;
 }
 
 /* Countdown */
@@ -229,7 +234,7 @@ nav {
 
 /* Button */
 .btn {
-    background: #CCFBF1;
+    background: #E0F2FE;
     color: #333;
     padding: 0.75rem 2rem;
     border: none;
@@ -241,13 +246,14 @@ nav {
     display: inline-block;
     text-align: center;
     box-sizing: border-box;
-    width: 100%;
+    width: auto;
+    max-width: 200px;
     font-family: inherit;
     line-height: 1.2;
 }
 
 .btn:hover {
-    background: #99F6E4;
+    background: #BAE6FD;
 }
 
 /* Story Section */
