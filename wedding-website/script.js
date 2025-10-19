@@ -103,8 +103,6 @@ function displayMockWeather() {
     document.getElementById('currentTemp').textContent = `${historicalWeather.avgTemp}°C`;
     document.getElementById('weatherDesc').textContent = historicalWeather.description;
     document.getElementById('tempRange').textContent = historicalWeather.tempRange;
-    document.getElementById('humidity').textContent = `${historicalWeather.humidity}%`;
-    document.getElementById('rainChance').textContent = `${historicalWeather.rainChance}%`;
 
     // Update wedding events forecast
     const forecastContainer = document.getElementById('weatherForecast');
@@ -116,8 +114,7 @@ function displayMockWeather() {
         eventElement.innerHTML = `
             <div class="forecast-date">${event.date}</div>
             <div class="forecast-temp">${event.temp}</div>
-            <div class="forecast-desc">${event.desc}</div>
-            <div style="font-size: 0.7rem; margin-top: 0.25rem; opacity: 0.6;">${event.event}</div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">${event.event}</div>
         `;
         forecastContainer.appendChild(eventElement);
     });

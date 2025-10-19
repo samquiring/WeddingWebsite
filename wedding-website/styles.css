@@ -421,10 +421,11 @@ nav {
 .weather-widget {
     margin-bottom: 4rem;
     padding: 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #f97316 0%, #E47B6A 50%, #f59e0b 100%);
     border-radius: 1rem;
     color: white;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(228, 123, 106, 0.3);
 }
 
 .weather-widget h2 {
@@ -438,30 +439,14 @@ nav {
     text-align: center;
 }
 
-.weather-note {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 0.5rem;
-    font-size: 0.9rem;
+.weather-main {
     text-align: center;
-}
-
-.weather-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.weather-current {
-    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .weather-location {
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     opacity: 0.9;
 }
 
@@ -473,29 +458,29 @@ nav {
 
 .weather-desc {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-transform: capitalize;
 }
 
-.weather-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    opacity: 0.8;
+.weather-range {
+    font-size: 0.95rem;
+    opacity: 0.9;
 }
 
-.weather-forecast {
+.weather-forecast-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .forecast-day {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.25rem;
+    border-radius: 0.75rem;
     text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .forecast-date {
@@ -757,12 +742,22 @@ footer .title {
 .travel-hero {
     padding: 2rem;
     text-align: center;
-    background: #f9fafb;
+    background: transparent;
 }
 
 .travel-section {
-    margin-bottom: 5rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 2.5rem 2rem;
+    margin-bottom: 3rem;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.travel-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .travel-icon {
@@ -799,9 +794,11 @@ footer .title {
 }
 
 .travel-subheading {
-    font-weight: 600;
-    color: #333;
-    margin-top: 2rem;
+    font-weight: 700;
+    color: #E47B6A;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 .hotel-links {
@@ -894,9 +891,10 @@ footer .title {
     }
 
     .mobile-nav-title {
-        font-family: 'Crimson Text', serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: 1.25rem;
         color: #E47B6A;
+        font-weight: 600;
     }
 
     .event-grid {

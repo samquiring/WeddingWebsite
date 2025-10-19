@@ -191,7 +191,7 @@
     </div>
 
     <!-- TRAVEL PAGE -->
-    <div id="travel" class="page">
+    <div id="travel" class="page page-blue">
         <!-- Hero Image for Travel -->
         <div class="travel-hero">
             <!-- TO ADD TRAVEL HERO IMAGE: Replace YOUR_TRAVEL_IMAGE_ID below -->
@@ -203,29 +203,21 @@
             <div class="weather-widget">
                 <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Weather in Puglia</h2>
                 <p class="weather-subtitle">Historical weather for late August</p>
-                <div class="weather-container">
-                    <div class="weather-current">
-                        <div class="weather-location">Fasano, Italy</div>
-                        <div class="weather-temp" id="currentTemp">--°C</div>
-                        <div class="weather-desc" id="weatherDesc">Loading...</div>
-                        <div class="weather-details">
-                            <span>Typical Range: <span id="tempRange">--°C</span></span>
-                            <span>Avg. Humidity: <span id="humidity">--%</span></span>
-                            <span>Chance of Rain: <span id="rainChance">--%</span></span>
-                        </div>
-                    </div>
-                    <div class="weather-forecast" id="weatherForecast">
-                        <!-- Wedding event forecast will be populated by JavaScript -->
-                    </div>
+
+                <div class="weather-main">
+                    <div class="weather-location">Fasano, Italy</div>
+                    <div class="weather-temp" id="currentTemp">28°C</div>
+                    <div class="weather-desc" id="weatherDesc">mostly clear</div>
+                    <div class="weather-range">Typical Range: <span id="tempRange">28°/21°</span></div>
                 </div>
-                <div class="weather-note">
-                    <p>Based on historical August data for Fasano (source: WeatherSpark.com). Perfect weather for a destination wedding! 🌞</p>
+
+                <div class="weather-forecast-grid" id="weatherForecast">
+                    <!-- Wedding event forecast will be populated by JavaScript -->
                 </div>
             </div>
             <!-- Flight Section -->
             <div class="travel-section">
                 <div class="travel-icon">✈️</div>
-                <p class="travel-label">Flight</p>
                 <h2 class="font-serif text-salmon travel-title">How to get to Puglia</h2>
                 
                 <div class="travel-content">
@@ -240,7 +232,6 @@
             <!-- Shuttle Section -->
             <div class="travel-section">
                 <div class="travel-icon">🚌</div>
-                <p class="travel-label">Shuttle</p>
                 <h2 class="font-serif text-salmon travel-title">How to get to Masseria Alchimia</h2>
                 <p class="travel-subtitle">August 25, 2026 3:45 pm - 2:00 am</p>
                 
@@ -254,7 +245,6 @@
             <!-- Rental Car Section -->
             <div class="travel-section">
                 <div class="travel-icon">🚗</div>
-                <p class="travel-label">Rental Car</p>
                 <h2 class="font-serif text-salmon travel-title">How to get around in Puglia</h2>
                 
                 <div class="travel-content">
@@ -267,22 +257,21 @@
             <!-- Hotel Section -->
             <div class="travel-section">
                 <div class="travel-icon">🏨</div>
-                <p class="travel-label">Hotel</p>
                 <h2 class="font-serif text-salmon travel-title">Where to stay</h2>
                 
                 <div class="travel-content">
-                    <p class="travel-subheading">Stay in Fasano:</p>
-                    
+                    <p class="travel-subheading">Option 1: Stay in Fasano</p>
+
                     <p>We recommend to stay in Fasano, as the Wedding Day Shuttle to the venue will run from the Fasano city center. The charming town is quite small but offers a lot of different restaurants, bars and is perfectly located for any kind of day-trips - check the "Things to do" section for some inspiration on how to spend your time around Fasano.</p>
-                    
+
                     <p>You can find plenty of different hotels or apartments in Fasano on the major platforms such as booking.com and Airbnb. However, we can recommend two beautiful places in particular, which are owned by the same lady as our wedding venue:</p>
-                    
+
                     <div class="hotel-links">
                         <p>Palazzina Alchimia: <a href="https://www.alchimiacollection.com/en/palazzina-alchimia/" target="_blank">https://www.alchimiacollection.com/en/palazzina-alchimia/</a></p>
                         <p>Palazzo Alchimia: <a href="https://www.alchimiacollection.com/en/palazzo-alchimia/" target="_blank">https://www.alchimiacollection.com/en/palazzo-alchimia/</a></p>
                     </div>
-                    
-                    <p class="travel-subheading">Stay walking-distance to the wedding venue:</p>
+
+                    <p class="travel-subheading">Option 2: Stay walking-distance to the wedding venue</p>
                     
                     <p>If you like it more quiet and peaceful, staying at one of the traditional Masserias in the countryside of Fasano might be just the right pick for you. The owner of our wedding venue recommended a few Masserias/Villas that are walking distance from our wedding venue:</p>
                     
