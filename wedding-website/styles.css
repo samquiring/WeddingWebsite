@@ -617,7 +617,7 @@ footer {
 }
 
 footer .title {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Dancing Script', cursive;
     font-size: 1.5rem;
     color: #E47B6A;
     margin-bottom: 0.5rem;
@@ -883,6 +883,7 @@ footer .title {
         font-size: 1.5rem;
         cursor: pointer;
         padding: 1rem;
+        color: #E47B6A;
     }
 
     .mobile-nav-header {

@@ -41,6 +41,21 @@ function showPage(pageId) {
     navLinks.forEach(link => link.classList.remove('active'));
     event.target.classList.add('active');
 
+    // Update mobile page title
+    const pageTitles = {
+        'home': 'Home',
+        'schedule': 'Schedule',
+        'travel': 'Travel',
+        'dress-code': 'Dress Code',
+        'things': 'Things To Do',
+        'faqs': 'FAQs',
+        'rsvp': 'RSVP'
+    };
+    const mobileTitle = document.getElementById('mobilePageTitle');
+    if (mobileTitle) {
+        mobileTitle.textContent = pageTitles[pageId] || 'Home';
+    }
+
     // Close mobile menu if open
     const navContainer = document.getElementById('navContainer');
     navContainer.classList.remove('mobile-open');
