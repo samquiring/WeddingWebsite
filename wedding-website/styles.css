@@ -24,13 +24,32 @@ body {
     background-color: #E47B6A;
 }
 
+/* Site Header */
+.site-header {
+    background: white;
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+}
+
+.site-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    color: #E47B6A;
+    margin: 0;
+    font-weight: 600;
+}
+
 /* Navigation */
 nav {
     position: sticky;
-    top: 0;
+    top: 5rem;
     background: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 1000;
+    border-top: 1px solid #f0f0f0;
 }
 
 .nav-container {
@@ -69,7 +88,6 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-left: auto;
 }
 
 .lang-link {
@@ -99,6 +117,26 @@ nav {
 }
 
 /* Hero Section */
+.hero-image-container {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Old hero styles - keeping for other pages */
 .hero {
     position: relative;
     height: 100vh;
