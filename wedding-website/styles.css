@@ -25,6 +25,12 @@ body {
     font-size: 0.75em;
 }
 
+/* Keep numbers normal size in event dates */
+.event-date .date-number,
+.event-time-small .date-number {
+    font-size: 1em;
+}
+
 .bg-salmon {
     background-color: #E47B6A;
 }
@@ -287,6 +293,83 @@ nav {
     margin-right: auto;
 }
 
+/* New Event Cards */
+.events-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.event-card-new {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card-new .btn-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-card-new:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.event-image-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    background: #f0f9ff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.event-image-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #E47B6A;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.event-datetime {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-date {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #666;
+}
+
+.event-time-small {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Old styles - keeping for compatibility */
 .event-card {
     background: white;
     border-radius: 0.5rem;
@@ -549,6 +632,11 @@ footer .title {
     display: block;
 }
 
+.page-blue {
+    background: #F0F9FF;
+    min-height: 100vh;
+}
+
 /* FAQs Page */
 .faq-intro {
     text-align: center;
@@ -766,6 +854,10 @@ footer .title {
 
     .names-section h2 {
         font-size: 2.5rem;
+    }
+
+    .events-container {
+        grid-template-columns: 1fr;
     }
 
     .nav-container {
