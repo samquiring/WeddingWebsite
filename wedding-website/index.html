@@ -44,10 +44,6 @@
 
         <!-- Names and Date Section -->
         <div class="section text-center">
-            <div class="names-section">
-                <h2>Samuel Quiring <span class="ampersand">&</span> Julie Sobirey</h2>
-            </div>
-            
             <div style="margin: 4rem 0;">
                 <h3 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 1rem;">August <span class="date-number">25</span>, <span class="date-number">2026</span></h3>
                 <p style="font-size: 1.125rem; color: #4b5563;">Masseria Alchimia, Puglia, Italy</p>
@@ -192,29 +188,7 @@
 
     <!-- TRAVEL PAGE -->
     <div id="travel" class="page page-blue">
-        <!-- Hero Image for Travel -->
-        <div class="travel-hero">
-            <!-- TO ADD TRAVEL HERO IMAGE: Replace YOUR_TRAVEL_IMAGE_ID below -->
-            <img src="https://www.italythisway.com/images/places/fullsize/monopoli.jpg" alt="Puglia Harbor" style="width: 100%; max-width: 800px; margin: 0 auto; display: block;">
-        </div>
-
         <div class="section">
-            <!-- Weather Widget -->
-            <div class="weather-widget">
-                <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Weather in Puglia</h2>
-                <p class="weather-subtitle">Historical weather for late August</p>
-
-                <div class="weather-main">
-                    <div class="weather-location">Fasano, Italy</div>
-                    <div class="weather-temp" id="currentTemp">28°C</div>
-                    <div class="weather-desc" id="weatherDesc">mostly clear</div>
-                    <div class="weather-range">Typical Range: <span id="tempRange">28°/21°</span></div>
-                </div>
-
-                <div class="weather-forecast-grid" id="weatherForecast">
-                    <!-- Wedding event forecast will be populated by JavaScript -->
-                </div>
-            </div>
             <!-- Flight Section -->
             <div class="travel-section">
                 <div class="travel-icon">✈️</div>
@@ -285,27 +259,60 @@
                     <p>Some of these places are not available for booking through any of the online platforms, so feel free to reach out to us if you need any assistance with booking a room there!</p>
                 </div>
             </div>
+
+            <!-- Weather Widget -->
+            <div class="weather-widget">
+                <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Weather in Puglia</h2>
+                <p class="weather-subtitle">Historical weather for late August</p>
+
+                <div class="weather-main">
+                    <div class="weather-location">Fasano, Italy</div>
+                    <div class="weather-temp" id="currentTemp">28°C / 82°F</div>
+                    <div class="weather-desc" id="weatherDesc">mostly clear</div>
+                    <div class="weather-range">Typical Range: <span id="tempRange">28°/21°C (82°/70°F)</span></div>
+                </div>
+
+                <div class="weather-forecast-grid" id="weatherForecast">
+                    <!-- Wedding event forecast will be populated by JavaScript -->
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- DRESS CODE PAGE -->
-    <div id="dress-code" class="page">
+    <div id="dress-code" class="page page-blue">
         <div class="section">
             <h2 class="font-serif text-salmon text-center" style="font-size: 3rem; margin-bottom: 4rem;">Dress Code</h2>
 
-            <!-- Welcome Party -->
-            <div class="dress-code-section">
-                <div class="dress-code-image">
-                    <!-- TO ADD WELCOME PARTY DRESS CODE IMAGE: Replace YOUR_WELCOME_PARTY_DRESSCODE_IMAGE_ID below -->
-                    <img src="https://i.imgur.com/h6YBju1.png" alt="Welcome Party Dress Code">
+            <div class="dress-code-tiles">
+                <!-- Welcome Party Tile -->
+                <div class="dress-code-tile" onclick="openDressCodeModal('welcome')">
+                    <div class="dress-code-tile-image">
+                        <img src="https://i.imgur.com/qfXrA2X.jpeg" alt="Welcome Party">
+                    </div>
+                    <h3 class="dress-code-tile-title">Welcome Party</h3>
+                    <p class="dress-code-tile-subtitle">August 24, 2026</p>
+                    <div class="dress-code-tile-description">
+                        <p><strong>Aperitivo by the Beach (Summer Cocktail)</strong></p>
+                        <p><strong>Men:</strong> Flowy, summery shirts and pants in light or neutral colors. Fun patterns welcome!</p>
+                        <p><strong>Women:</strong> Think summery and beachy – e.g. light and flowy sundresses, two-pieces or jumpsuits.</p>
+                    </div>
+                    <p class="dress-code-tile-cta">Click here for some outfit inspiration</p>
                 </div>
-            </div>
 
-            <!-- Wedding Celebration -->
-            <div class="dress-code-section">
-                <div class="dress-code-image">
-                    <!-- TO ADD WEDDING DRESS CODE IMAGE: Replace YOUR_WEDDING_DRESSCODE_IMAGE_ID below -->
-                    <img src="https://i.imgur.com/40NNJM5.png" alt="Wedding Celebration Dress Code">
+                <!-- Wedding Day Tile -->
+                <div class="dress-code-tile" onclick="openDressCodeModal('wedding')">
+                    <div class="dress-code-tile-image">
+                        <img src="https://i.imgur.com/yrznE6Y.jpeg" alt="Wedding Day">
+                    </div>
+                    <h3 class="dress-code-tile-title">Wedding Day</h3>
+                    <p class="dress-code-tile-subtitle">August 25, 2026</p>
+                    <div class="dress-code-tile-description">
+                        <p><strong>Mediterranean Summer (Formal)</strong></p>
+                        <p><strong>Men:</strong> Suits in classic, neutral or light colours (tie optional). Light and breathable fabrics are recommended! No shorts or denim please.</p>
+                        <p><strong>Women:</strong> Floor-length or midi dresses/jumpsuits in summery colours. Fun floral or aquatic patterns welcome!</p>
+                    </div>
+                    <p class="dress-code-tile-cta">Click here for some outfit inspiration</p>
                 </div>
             </div>
         </div>

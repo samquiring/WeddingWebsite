@@ -20,9 +20,9 @@ body {
     color: #E47B6A;
 }
 
-/* Make numbers smaller in dates */
+/* Keep numbers same size as title */
 .date-number {
-    font-size: 0.75em;
+    font-size: 1em;
 }
 
 /* Keep numbers normal size in event dates */
@@ -487,11 +487,13 @@ nav {
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
     opacity: 0.8;
+    text-align: center;
 }
 
 .forecast-temp {
     font-weight: bold;
     margin: 0.5rem 0;
+    text-align: center;
 }
 
 .forecast-desc {
@@ -503,13 +505,33 @@ nav {
     .weather-container {
         grid-template-columns: 1fr;
     }
-    
-    .weather-forecast {
+
+    .weather-forecast-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        padding: 0 0.25rem;
     }
-    
+
+    .forecast-day {
+        padding: 1rem 0.5rem;
+    }
+
+    .forecast-date {
+        text-align: center;
+        font-size: 0.75rem;
+    }
+
+    .forecast-temp {
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
     .weather-temp {
         font-size: 2.5rem;
+    }
+
+    .weather-widget {
+        padding: 1.5rem 1rem;
     }
 }
 
@@ -721,21 +743,160 @@ footer .title {
 }
 
 /* Dress Code Page */
-.dress-code-section {
-    margin-bottom: 3rem;
+.dress-code-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.dress-code-image {
+.dress-code-tile {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.dress-code-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.dress-code-tile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    background: #f0f9ff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.dress-code-tile-image img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dress-code-tile-title {
+    font-family: 'Homemade Apple', cursive;
+    font-size: 2rem;
+    color: #E47B6A;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.dress-code-tile-subtitle {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dress-code-tile-description {
+    text-align: left;
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.dress-code-tile-description p {
+    margin-bottom: 0.75rem;
+}
+
+.dress-code-tile-description p:first-child {
     text-align: center;
 }
 
-.dress-code-image img {
+.dress-code-tile-description p:last-child {
+    margin-bottom: 0;
+}
+
+.dress-code-tile-cta {
+    color: #999;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+/* Dress Code Modal */
+.dress-code-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 2rem;
+}
+
+.dress-code-modal-content {
+    position: relative;
     max-width: 1000px;
+    width: 100%;
+    max-height: 90vh;
+}
+
+.dress-code-modal-content img {
+    width: 100%;
     height: auto;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dress-code-modal-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.dress-code-modal-close:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .dress-code-tiles {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .dress-code-tile {
+        padding: 2rem 1.5rem;
+    }
+
+    .dress-code-tile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .dress-code-tile-title {
+        font-size: 1.75rem;
+    }
+
+    .dress-code-modal {
+        padding: 1rem;
+    }
+
+    .dress-code-modal-close {
+        top: -2rem;
+        font-size: 1.5rem;
+    }
 }
 
 /* Travel Page */

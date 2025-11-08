@@ -82,11 +82,15 @@ async function loadWeather() {
     }
 }
 
+function celsiusToFahrenheit(celsius) {
+    return Math.round((celsius * 9/5) + 32);
+}
+
 function displayMockWeather() {
     // Historical weather data for August in Fasano (source: WeatherSpark.com)
     const historicalWeather = {
         avgTemp: 28, // Average of 28°C (83°F high, 69°F low)
-        tempRange: '28°/21°', // 83°F = 28°C, 69°F = 21°C
+        tempRange: { high: 28, low: 21 }, // 83°F = 28°C, 69°F = 21°C
         humidity: 65, // Muggy conditions common
         rainChance: 8, // Very low rainfall (0.8 inches = ~20mm total for month)
         description: 'mostly clear'
@@ -94,26 +98,32 @@ function displayMockWeather() {
 
     // Wedding event weather expectations (based on historical August averages)
     const weddingEvents = [
-        { date: 'Aug 24', event: 'Welcome Party', temp: '27°/21°', desc: 'clear evening' },
-        { date: 'Aug 25', event: 'Wedding Day', temp: '28°/21°', desc: 'mostly clear' },
-        { date: 'Aug 26', event: 'Beach Day', temp: '28°/22°', desc: 'perfect for beach' }
+        { date: 'Aug 24', event: 'Welcome Party', high: 27, low: 21, desc: 'clear evening' },
+        { date: 'Aug 25', event: 'Wedding Day', high: 28, low: 21, desc: 'mostly clear' },
+        { date: 'Aug 26', event: 'Beach Day', high: 28, low: 22, desc: 'perfect for beach' }
     ];
 
     // Update historical weather summary
-    document.getElementById('currentTemp').textContent = `${historicalWeather.avgTemp}°C`;
+    const avgTempF = celsiusToFahrenheit(historicalWeather.avgTemp);
+    document.getElementById('currentTemp').textContent = `${historicalWeather.avgTemp}°C / ${avgTempF}°F`;
     document.getElementById('weatherDesc').textContent = historicalWeather.description;
-    document.getElementById('tempRange').textContent = historicalWeather.tempRange;
+
+    const highF = celsiusToFahrenheit(historicalWeather.tempRange.high);
+    const lowF = celsiusToFahrenheit(historicalWeather.tempRange.low);
+    document.getElementById('tempRange').textContent = `${historicalWeather.tempRange.high}°/${historicalWeather.tempRange.low}°C (${highF}°/${lowF}°F)`;
 
     // Update wedding events forecast
     const forecastContainer = document.getElementById('weatherForecast');
     forecastContainer.innerHTML = '';
-    
+
     weddingEvents.forEach(event => {
+        const highF = celsiusToFahrenheit(event.high);
+        const lowF = celsiusToFahrenheit(event.low);
         const eventElement = document.createElement('div');
         eventElement.className = 'forecast-day';
         eventElement.innerHTML = `
             <div class="forecast-date">${event.date}</div>
-            <div class="forecast-temp">${event.temp}</div>
+            <div class="forecast-temp">${event.high}°/${event.low}°C<br>${highF}°/${lowF}°F</div>
             <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">${event.event}</div>
         `;
         forecastContainer.appendChild(eventElement);
@@ -244,6 +254,46 @@ function showCalendarOptions(event) {
             modal.remove();
         }
     });
+}
+
+// Dress Code Modal
+function openDressCodeModal(eventType) {
+    const images = {
+        'welcome': 'https://i.imgur.com/h6YBju1.png',
+        'wedding': 'https://i.imgur.com/40NNJM5.png'
+    };
+
+    const titles = {
+        'welcome': 'Welcome Party Dress Code',
+        'wedding': 'Wedding Day Dress Code'
+    };
+
+    const modal = document.createElement('div');
+    modal.className = 'dress-code-modal';
+    modal.innerHTML = `
+        <div class="dress-code-modal-content">
+            <button class="dress-code-modal-close" onclick="this.parentElement.parentElement.remove()">✕</button>
+            <img src="${images[eventType]}" alt="${titles[eventType]}">
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+
+    // Close on ESC key
+    const escHandler = (e) => {
+        if (e.key === 'Escape') {
+            modal.remove();
+            document.removeEventListener('keydown', escHandler);
+        }
+    };
+    document.addEventListener('keydown', escHandler);
 }
 
 // Load weather when page loads
