@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julie & Samuel - Hochzeit</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Julie & Samuel - Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Homemade+Apple&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -16,15 +16,15 @@
     <!-- Navigation -->
     <nav>
         <div class="mobile-nav-header">
-            <span class="mobile-nav-title">Julie & Samuel</span>
+            <span class="mobile-nav-title" id="mobilePageTitle">Startseite</span>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
         <div class="nav-container" id="navContainer">
-            <button class="nav-link active" onclick="showPage('home')">Start</button>
-            <button class="nav-link" onclick="showPage('schedule')">Zeitplan</button>
+            <button class="nav-link active" onclick="showPage('home')">Startseite</button>
+            <button class="nav-link" onclick="showPage('schedule')">Programm</button>
             <button class="nav-link" onclick="showPage('travel')">Anreise</button>
             <button class="nav-link" onclick="showPage('dress-code')">Dresscode</button>
-            <button class="nav-link" onclick="showPage('things')">Aktivitäten</button>
+            <button class="nav-link" onclick="showPage('things')">Unternehmungen</button>
             <button class="nav-link" onclick="showPage('faqs')">FAQs</button>
             <button class="nav-link" onclick="showPage('rsvp')">RSVP</button>
             <div class="language-switcher">
@@ -36,193 +36,165 @@
     </nav>
 
     <!-- HOME PAGE -->
-    <div id="home" class="page active">
+    <div id="home" class="page active page-blue">
         <!-- Hero Section -->
-        <div class="hero" style="background-image: url('https://i.imgur.com/qIB4DRq.jpeg'); background-size: cover; background-position: center;">
-            <div class="hero-overlay"></div>
+        <div class="hero-image-container">
+            <img src="https://i.imgur.com/PnH6DN7.jpeg" alt="Julie & Samuel" class="hero-image">
         </div>
 
-        <!-- Names and Date Section -->
-        <div class="section text-center">
-            <div class="names-section">
-                <h2>Samuel<br/>Quiring</h2>
-                <span class="ampersand">&</span>
-                <h2>Julie<br/>Sobirey</h2>
-            </div>
-            
-            <div style="margin: 4rem 0;">
-                <h3 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 1rem;">25. August 2026</h3>
-                <p style="font-size: 1.125rem; color: #4b5563;">Masseria Alchimia, Puglia, Italien</p>
+        <div class="section">
+            <!-- Date and RSVP Section -->
+            <div class="travel-section text-center">
+                <h3 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 1rem;">August <span class="date-number">25</span>, <span class="date-number">2026</span></h3>
+                <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 3rem;">Masseria Alchimia, Puglia, Italy</p>
+
+                <!-- Countdown Timer -->
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">0</div>
+                        <div class="countdown-label">Tage</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">0</div>
+                        <div class="countdown-label">Stunden</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">0</div>
+                        <div class="countdown-label">Minuten</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">0</div>
+                        <div class="countdown-label">Sekunden</div>
+                    </div>
+                </div>
+
+                <button class="btn" style="margin-top: 3rem;">RSVP</button>
             </div>
 
-            <!-- Countdown Timer -->
-            <div class="countdown" id="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">0</div>
-                    <div class="countdown-label">Tage</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">0</div>
-                    <div class="countdown-label">Stunden</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">0</div>
-                    <div class="countdown-label">Minuten</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">0</div>
-                    <div class="countdown-label">Sekunden</div>
-                </div>
-            </div>
+            <!-- Where it all began -->
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon text-center travel-title">Wo alles begann...</h2>
 
-            <button class="btn">RSVP</button>
-        </div>
+                <div class="travel-content">
+                    <p>Im Sommer 2022 hatten zwei Menschen von verschiedenen Seiten der Welt die gleiche Idee (naja, zumindest fast die gleiche Idee):</p>
 
-        <!-- Where it all began -->
-        <div class="section section-gray">
-            <h2 class="font-serif text-salmon text-center" style="font-size: 3rem; margin-bottom: 4rem;">Wo alles begann...</h2>
-            
-            <div class="story-text">
-                <p>Im Sommer 2022 hatten zwei Menschen von verschiedenen Seiten der Welt dieselbe Idee (zumindest fast dieselbe Idee):</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Gerade vom College abgeschlossen und mit einem langen Sommer vor sich, beschloss Sam, eine 2-monatige Backpacking-Reise nach Südostasien zu machen. Keine Pläne, keine Tickets, nur vibes.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Ein paar tausend Kilometer entfernt plante Julie eifrig ihren 2-wöchigen Urlaub zum selben Ziel. Natürlich mit einem detaillierten Reiseplan, einem 20€ Budget pro Tag - und dem Plan, sich während ihrer ersten Solo-Reise "auf sich selbst zu konzentrieren".</p>
-            </div>
-            
-            <div class="story-text">
-                <p>So fanden sich am Abend des 27. August diese beiden jungen Reisenden in Bangkoks China Town wieder. Sam, unfreiwillig in Bangkok gestrandet, nachdem ihm die Einreise nach Vietnam verweigert wurde (wie gesagt, keine Pläne, nur vibes). Julie, am Beginn ihrer lang ersehnten Reise und Mut sammelnd, um neue Hostel-Freunde zu finden. Und beide beschlossen, die Rooftop-Bar des Luk Hostels zu besuchen. Julie suchte ein freundliches Gesicht. Sam wollte nur einen Drink nehmen und ins Bett gehen. Aber nach zwei Tuk-Tuk-Fahrten, mehreren geteilten Buckets und jemandem, der über sein Alter log, fanden sich die beiden in der Damentoilette wieder. Einer völlig betrunken, die andere schlecht Ukulele spielend.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Es folgten zwei Wochen endloser Abenteuer: Sam folgte Julies strengem Reiseplan mit 25.000 Schritten und nur einer ordentlichen Mahlzeit pro Tag. Julie fand sich damit ab, ihr 20€ Tagesbudget zu erweitern und realisierte langsam, dass sie nicht die Solo-Reise bekommen würde, die sie geplant hatte, aber vielleicht etwas noch Besseres.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Was beide nicht ahnten war, dass diese kleine Thai-Romanze ihr Leben auf den Kopf stellen würde. Eine Woche nach Julies Rückkehr nach Deutschland buchten sie ihren ersten von vielen Flügen nach Seattle. Und das war erst der Anfang. Während sie über 1,5 Jahre eine Fernbeziehung führten, verliebte sich Julie in Sams Heimat (einschließlich Lucky Boy's Frühstücksburritos, der Fülle an Starbucks-Filialen und natürlich seiner unglaublichen Familie und Freunde). Sam begann Deutsch zu lernen und bekam einen Vorgeschmack auf die deutsche Kultur (und deutsches Bier) beim Kölner Karneval und Oktoberfest in München.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Vorspulen zu 2024, vieles hatte sich verändert. Die Tage der täglichen FaceTime-Anrufe, 10-Stunden-Flüge und US-Grenzangst waren endlich vorbei. Sam zog nach Deutschland und die beiden begannen ihr bisher größtes Abenteuer - das Zusammenziehen in der aufregenden Stadt Berlin.</p>
-            </div>
+                    <p>Frisch vom College und mit einem langen Sommer vor sich, beschloss Sam, eine 2-monatige Rucksackreise durch Südostasien zu machen. Keine Pläne, keine Tickets, nur Vibes.</p>
 
-            <!-- Proposal Photo -->
-            <img src="https://i.imgur.com/axOxjHq.jpeg" alt="Der Heiratsantrag" style="width: 100%; max-width: 800px; margin: 3rem auto; display: block; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <p>Ein paar tausend Kilometer entfernt plante Julie eifrig ihren 2-wöchigen Urlaub zum gleichen Ziel. Natürlich mit detailliertem Reiseplan, einem 20€-Budget pro Tag - und dem Plan, sich während ihrer allerersten Soloreise "auf sich selbst zu konzentrieren".</p>
+
+                    <p>So fanden sich am Abend des 27. August diese beiden jungen Reisenden in Bangkoks China Town wieder. Sam, ungewollt in Bangkok festsitzend, nachdem ihm die Einreise nach Vietnam verweigert wurde (wie gesagt, keine Pläne, nur Vibes). Julie, am Anfang ihrer lang ersehnten Reise und Mut zusammennehmend, um neue Hostel-Freunde zu finden. Und beide beschlossen, die Rooftop-Bar des Luk Hostels zu besuchen. Julie suchte nach einem freundlichen Gesicht. Sam wollte nur einen Drink nehmen und ins Bett gehen. Aber nach zwei Tuk-Tuk-Fahrten, mehreren geteilten Buckets und jemandem, der über sein Alter log, fanden sich die beiden in der Damentoilette wieder. Der eine völlig hin und weg, die andere schlecht Ukulele spielend.</p>
+
+                    <p>Was folgte, waren zwei Wochen voller endloser Abenteuer: Sam folgte Julies striktem Reiseplan mit 25.000 Schritten und nur einer richtigen Mahlzeit pro Tag. Julie arrangierte sich damit, ihr 20€-Tagesbudget zu erweitern und realisierte langsam, dass sie nicht die Soloreise bekommen würde, die sie geplant hatte, sondern vielleicht etwas noch Besseres.</p>
+
+                    <p>Was beide nicht ahnten, war, dass diese kleine thailändische Romanze ihr Leben auf den Kopf stellen würde. Eine Woche nach Julies Rückkehr nach Deutschland buchten sie ihren ersten von vielen Flügen nach Seattle. Und das war erst der Anfang. Während sie über 1,5 Jahre eine Fernbeziehung führten, verliebte sich Julie in Sams Heimat (einschließlich Lucky Boy's Frühstücksburritos, der Fülle an Starbucks-Filialen und natürlich seiner unglaublichen Familie und Freunde). Sam begann Deutsch zu lernen und bekam einen Vorgeschmack auf die deutsche Kultur (und deutsches Bier) beim Kölner Karneval und Oktoberfest in München.</p>
+
+                    <p>Schneller Vorlauf zu 2024, vieles hatte sich verändert. Die Tage der täglichen FaceTime-Anrufe, 10-stündigen Flüge und US-Grenz-Ängste waren endlich vorbei. Sam zog nach Deutschland und die beiden begaben sich auf ihr bisher größtes Abenteuer - zusammen in die aufregende Stadt Berlin zu ziehen.</p>
+
+                    <!-- Proposal Photo -->
+                    <img src="https://i.imgur.com/axOxjHq.jpeg" alt="The Proposal" style="width: 100%; max-width: 800px; margin: 3rem auto; display: block; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- SCHEDULE PAGE -->
-    <div id="schedule" class="page">
+    <div id="schedule" class="page page-blue">
         <div class="section">
-            <p class="schedule-intro">
-                Wir möchten gerne, dass all unsere Freunde und Familie aus der ganzen Welt Zeit haben, sich kennenzulernen und zu verbinden - deshalb haben wir einige lustige Aktivitäten und Veranstaltungen rund um unseren Hochzeitstag geplant. Schaut euch den Zeitplan unten an, um zu sehen, was euch in Puglia erwartet - wir können es kaum erwarten, mit euch zu feiern!
-            </p>
-
-            <!-- Sunday, August 23 -->
-            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 3rem;">Sonntag, 23. August 2026</h2>
-            
-            <div class="event-card family-event">
-                <div class="event-grid">
-                    <div>
-                        <h3 class="event-title">Probe-Dinner</h3>
-                        <p class="event-time">19:00 - 22:00 Uhr</p>
-                        <div class="family-badge">Nur Familie</div>
+            <div class="events-container">
+                <!-- Rehearsal Dinner -->
+                <div class="event-card-new">
+                    <div class="event-image-circle">
+                        <img src="https://i.imgur.com/RiW8GaZ.png" alt="Probe-Dinner">
                     </div>
-                    
-                    <div>
-                        <p class="event-location">Pizzeria del Portico</p>
-                        <p class="event-location-sub">Fasano, Italien</p>
-                        
-                        <p class="event-description">
-                            Ein intimes Abendessen für unsere engsten Familienangehörigen, um sich vor der großen Feier kennenzulernen. Begleitet uns zu authentischer italienischer Pizza und guten Gesprächen!
-                        </p>
-                        
-                        <div class="btn-group">
-                            <a href="https://maps.google.com/?q=Pizzeria+del+Portico,+Fasano,+Italy" target="_blank" class="btn">Karte</a>
-                            <button class="btn" onclick="addToCalendar('rehearsal')">Zum Kalender hinzufügen</button>
-                        </div>
+                    <h3 class="event-name">Probe-Dinner</h3>
+                    <div class="event-datetime">
+                        <span class="event-date">Sonntag, <span class="date-number">23</span>. August <span class="date-number">2026</span></span>
+                        <span class="event-time-small"><span class="date-number">19:00</span> - <span class="date-number">22:00</span> Uhr</span>
+                    </div>
+                    <p class="event-location">Pizzeria del Portico</p>
+                    <p class="event-location-sub">Fasano, Italien</p>
+
+                    <p class="event-description" style="font-style: italic; color: #E47B6A;">
+                        Wenn ihr das seht, seid ihr eingeladen! :)
+                    </p>
+
+                    <p class="event-description">
+                        Ein intimes Abendessen für unsere engsten Familienmitglieder, um sich vor der großen Feier kennenzulernen. Begleitet uns auf authentische italienische Pizza und gute Gespräche!
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="https://maps.google.com/?q=Pizzeria+del+Portico,+Fasano,+Italy" target="_blank" class="btn">Karte</a>
+                        <button class="btn" onclick="addToCalendar('rehearsal')">Zum Kalender hinzufügen</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Monday, August 24 -->
-            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Montag, 24. August 2026</h2>
-            
-            <div class="event-card">
-                <div class="event-grid">
-                    <div>
-                        <h3 class="event-title">Willkommensparty</h3>
-                        <p class="event-time">19:00 - 23:00 Uhr</p>
+                <!-- Welcome Party -->
+                <div class="event-card-new">
+                    <div class="event-image-circle">
+                        <img src="https://i.imgur.com/RiW8GaZ.png" alt="Willkommensparty">
                     </div>
-                    
-                    <div>
-                        <p class="event-location">Mareducato</p>
-                        <p class="event-location-sub">Savelletri, Italien</p>
-                        
-                        <p class="event-description">
-                            Wir haben eine offene Bar mit Wein und Bier sowie Fingerfood, daher empfehlen wir euch, vorher zu Abend zu essen.
-                        </p>
-                        
-                        <p class="event-description">
-                            Für alle Cocktail/Aperol Spritz-Liebhaber: Wenn ihr Lust auf etwas anderes als Wein oder Bier habt, könnt ihr das Getränk eurer Wahl an der regulären Bar kaufen.
-                        </p>
-                        
-                        <div class="btn-group">
-                            <a href="https://maps.google.com/?q=Mareducato,+Savelletri,+Italy" target="_blank" class="btn">Karte</a>
-                            <button class="btn" onclick="addToCalendar('welcome')">Zum Kalender hinzufügen</button>
-                        </div>
+                    <h3 class="event-name">Willkommensparty</h3>
+                    <div class="event-datetime">
+                        <span class="event-date">Montag, <span class="date-number">24</span>. August <span class="date-number">2026</span></span>
+                        <span class="event-time-small"><span class="date-number">19:00</span> - <span class="date-number">23:00</span> Uhr</span>
+                    </div>
+                    <p class="event-location">Mareducato</p>
+                    <p class="event-location-sub">Savelletri, Italien</p>
+
+                    <p class="event-description">
+                        Es gibt eine offene Bar mit Wein und Bier sowie Fingerfood, daher empfehlen wir euch, vorher zu Abend zu essen.
+                    </p>
+
+                    <p class="event-description">
+                        Für alle Cocktail/Aperol Spritz-Liebhaber: Wenn ihr Lust auf etwas anderes als Wein oder Bier habt, könnt ihr euch an der regulären Bar ein Getränk eurer Wahl kaufen.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="https://maps.google.com/?q=Mareducato,+Savelletri,+Italy" target="_blank" class="btn">Karte</a>
+                        <button class="btn" onclick="addToCalendar('welcome')">Zum Kalender hinzufügen</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Tuesday, August 25 -->
-            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Dienstag, 25. August 2026</h2>
-            
-            <div class="event-card">
-                <div class="event-grid">
-                    <div>
-                        <h3 class="event-title">Hochzeitsfeier</h3>
-                        <p class="event-time">Di, 25. Aug 2026, 16:00 Uhr - Mi, 26. Aug 2026, 02:00 Uhr</p>
+                <!-- Wedding Celebration -->
+                <div class="event-card-new">
+                    <div class="event-image-circle">
+                        <img src="https://i.imgur.com/aaohyqm.jpeg" alt="Hochzeitsfeier">
                     </div>
-                    
-                    <div>
-                        <p class="event-location">Masseria Alchimia</p>
-                        <p class="event-location-sub">Fasano, Italien</p>
-                        
-                        <p class="event-description">
-                            Unsere Hochzeit wird eine Mischung aus deutschen und US-amerikanischen Hochzeitstraditionen sein. Wir beginnen die Feier mit einer symbolischen Zeremonie im Olivenhain der Masseria, gefolgt von einem apulischen BBQ-Dinner und Empfang (mit viel Tanzen natürlich!).
-                        </p>
-                        
-                        <p class="event-description">
-                            Das detaillierte Programm und die geplanten Aktivitäten für den Tag bleiben vorerst eine Überraschung...
-                        </p>
-                        
-                        <div class="btn-group">
-                            <a href="https://maps.google.com/?q=Masseria+Alchimia,+Fasano,+Italy" target="_blank" class="btn">Karte</a>
-                            <button class="btn" onclick="addToCalendar('wedding')">Zum Kalender hinzufügen</button>
-                        </div>
+                    <h3 class="event-name">Hochzeitsfeier</h3>
+                    <div class="event-datetime">
+                        <span class="event-date">Dienstag, <span class="date-number">25</span>. August <span class="date-number">2026</span></span>
+                        <span class="event-time-small"><span class="date-number">16:00</span> - <span class="date-number">2:00</span> Uhr</span>
+                    </div>
+                    <p class="event-location">Masseria Alchimia</p>
+                    <p class="event-location-sub">Fasano, Italien</p>
+
+                    <p class="event-description">
+                        Unsere Hochzeit wird eine Mischung aus deutschen und US-amerikanischen Hochzeitstraditionen sein. Wir beginnen die Feier mit einer symbolischen Zeremonie im Olivenhain der Masseria, gefolgt von einem apulischen BBQ-Dinner und Empfang (mit viel Tanzen natürlich!).
+                    </p>
+
+                    <p class="event-description">
+                        Das detaillierte Programm und die geplanten Aktivitäten für den Tag bleiben vorerst eine Überraschung...
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="https://maps.google.com/?q=Masseria+Alchimia,+Fasano,+Italy" target="_blank" class="btn">Karte</a>
+                        <button class="btn" onclick="addToCalendar('wedding')">Zum Kalender hinzufügen</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Wednesday, August 26 -->
-            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Mittwoch, 26. August 2026</h2>
-            
-            <div class="event-card">
-                <div class="event-grid">
-                    <div>
-                        <h3 class="event-title">Strandtag</h3>
-                        <p class="event-time">12:00 - 18:00 Uhr</p>
+                <!-- Beach Day -->
+                <div class="event-card-new">
+                    <div class="event-image-circle">
+                        <img src="https://static1.squarespace.com/static/55a976e7e4b0a996cf2e4637/55aac24ce4b0b69fc5b28d11/5b882ee24d7a9cd182de8562/1603130094180/Lido+Santo+Stefano.jpg?format=1500w" alt="Strandtag">
                     </div>
-                    
-                    <div>
-                        <div class="btn-group">
-                            <button class="btn" onclick="addToCalendar('beach')">Zum Kalender hinzufügen</button>
-                        </div>
+                    <h3 class="event-name">Strandtag</h3>
+                    <div class="event-datetime">
+                        <span class="event-date">Mittwoch, <span class="date-number">26</span>. August <span class="date-number">2026</span></span>
+                        <span class="event-time-small"><span class="date-number">12:00</span> - <span class="date-number">18:00</span> Uhr</span>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn" onclick="addToCalendar('beach')">Zum Kalender hinzufügen</button>
                     </div>
                 </div>
             </div>
@@ -230,217 +202,294 @@
     </div>
 
     <!-- TRAVEL PAGE -->
-    <div id="travel" class="page">
-        <!-- Hero Image for Travel -->
-        <div class="travel-hero">
-            <img src="https://www.italythisway.com/images/places/fullsize/monopoli.jpg" alt="Puglia Hafen" style="width: 100%; max-width: 800px; margin: 0 auto; display: block;">
-        </div>
-
+    <div id="travel" class="page page-blue">
         <div class="section">
-            <!-- Weather Widget -->
-            <div class="weather-widget">
-                <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Wetter in Puglia</h2>
-                <p class="weather-subtitle">Historisches Wetter für Ende August</p>
-                <div class="weather-container">
-                    <div class="weather-current">
-                        <div class="weather-location">Fasano, Italien</div>
-                        <div class="weather-temp" id="currentTemp">--°C</div>
-                        <div class="weather-desc" id="weatherDesc">Wird geladen...</div>
-                        <div class="weather-details">
-                            <span>Typische Spanne: <span id="tempRange">--°C</span></span>
-                            <span>Ø Luftfeuchtigkeit: <span id="humidity">--%</span></span>
-                            <span>Regenwahrsch.: <span id="rainChance">--%</span></span>
-                        </div>
-                    </div>
-                    <div class="weather-forecast" id="weatherForecast">
-                        <!-- Wedding event forecast will be populated by JavaScript -->
-                    </div>
-                </div>
-                <div class="weather-note">
-                    <p>Basierend auf historischen August-Daten für Fasano (Quelle: WeatherSpark.com). Perfektes Wetter für eine Hochzeit! 🌞</p>
-                </div>
-            </div>
-            
             <!-- Flight Section -->
             <div class="travel-section">
                 <div class="travel-icon">✈️</div>
-                <p class="travel-label">Flug</p>
-                <h2 class="font-serif text-salmon travel-title">Wie man nach Puglia kommt</h2>
-                
+                <h2 class="font-serif text-salmon travel-title">Wie ihr nach Apulien kommt</h2>
+
                 <div class="travel-content">
-                    <p>Wir empfehlen, nach Bari zu fliegen, Puglias wichtigstem internationalen Flughafen. Von dort könnt ihr Fasano, wo die Hochzeit stattfindet, leicht mit dem Auto (50 Min) oder Zug (1,5 Stunden) erreichen.</p>
-                    
+                    <p>Wir empfehlen, nach Bari zu fliegen, dem internationalen Hauptflughafen Apuliens. Von dort könnt ihr Fasano, wo die Hochzeit stattfindet, einfach mit dem Auto (50 Minuten) oder Zug (1,5 Stunden) erreichen.</p>
+
                     <p>Viele deutsche Flughäfen bieten mehrmals pro Woche Direktflüge nach Bari an (z.B. von Berlin, Düsseldorf, Köln, Hamburg, Frankfurt und München).</p>
-                    
-                    <p>Leider gibt es keine Direktflüge von den USA nach Bari. Wir haben jedoch geprüft und ihr könnt Bari mit einem Zwischenstopp von fast jedem größeren US-Flughafen erreichen. Alternativ könnt ihr direkt nach Rom fliegen und dann einen Direktzug nach Bari nehmen (die Züge in Italien sind tatsächlich ziemlich günstig und gut organisiert, also ist das definitiv eine solide Option).</p>
+
+                    <p>Leider gibt es keine Direktflüge von den USA nach Bari. Wir haben aber recherchiert und ihr könnt Bari mit einem Zwischenstopp von fast jedem größeren US-Flughafen erreichen. Alternativ könnt ihr direkt nach Rom fliegen und dann einen Direktzug nach Bari nehmen (die Züge in Italien sind tatsächlich recht günstig und gut organisiert, also definitiv eine solide Option).</p>
                 </div>
             </div>
 
             <!-- Shuttle Section -->
             <div class="travel-section">
                 <div class="travel-icon">🚌</div>
-                <p class="travel-label">Shuttle</p>
-                <h2 class="font-serif text-salmon travel-title">Wie man zur Masseria Alchimia kommt</h2>
-                <p class="travel-subtitle">25. August 2026 15:45 Uhr - 02:00 Uhr</p>
-                
+                <h2 class="font-serif text-salmon travel-title">Wie ihr zur Masseria Alchimia kommt</h2>
+                <p class="travel-subtitle">25. August 2026, 15:45 - 2:00 Uhr</p>
+
                 <div class="travel-content">
-                    <p>Unser Hochzeitsort liegt direkt außerhalb von Fasano auf dem Land. Ein Shuttle vom Zentrum von Fasano bringt euch an unserem Hochzeitstag zum Veranstaltungsort (10 Min Fahrt).</p>
-                    
-                    <p>Am Abend gibt es einen Shuttle zurück von unserem Veranstaltungsort zum Stadtzentrum von Fasano. Wir werden euch ein paar Wochen vor der Hochzeit über die genauen Abholzeiten und den Ort informieren.</p>
+                    <p>Unsere Hochzeitslocation liegt etwas außerhalb von Fasano auf dem Land. Ein Shuttle vom Zentrum Fasanos bringt euch am Hochzeitstag zur Location (10 Minuten Fahrt).</p>
+
+                    <p>Abends wird es einen Shuttle zurück von unserer Location ins Stadtzentrum von Fasano geben. Wir werden euch ein paar Wochen vor der Hochzeit über die genauen Abholzeiten und den Ort informieren.</p>
                 </div>
             </div>
 
             <!-- Rental Car Section -->
             <div class="travel-section">
                 <div class="travel-icon">🚗</div>
-                <p class="travel-label">Mietwagen</p>
-                <h2 class="font-serif text-salmon travel-title">Wie man in Puglia herumkommt</h2>
-                
+                <h2 class="font-serif text-salmon travel-title">Wie ihr in Apulien herumkommt</h2>
+
                 <div class="travel-content">
-                    <p>Wir empfehlen dringend, ein Auto zu mieten oder mit anderen Gästen Fahrgemeinschaften zu bilden, um flexibel zu sein und das Beste aus eurem Aufenthalt in Puglia herauszuholen. Am Flughafen Bari findet ihr viele verschiedene lokale und internationale Autovermietungen.</p>
-                    
-                    <p>Falls ihr auf die Autovermietung verzichtet, habt ihr immer noch gute Möglichkeiten, herumzukommen, da Fasano gut durch Züge und Busse verbunden ist. Für den Hochzeitstag haben wir einen Shuttle vom Stadtzentrum Fasano zum Hochzeitsort und abends zurück.</p>
+                    <p>Wir empfehlen sehr, ein Auto zu mieten oder mit anderen Gästen Fahrgemeinschaften zu bilden, um flexibel zu sein und das Beste aus eurem Aufenthalt in Apulien herauszuholen. Am Flughafen Bari findet ihr viele verschiedene lokale und internationale Autovermietungen.</p>
+
+                    <p>Wenn ihr auf ein Mietauto verzichten möchtet, habt ihr trotzdem gute Möglichkeiten, herumzukommen, da Fasano gut durch Züge und Busse angebunden ist. Am Hochzeitstag wird es einen Shuttle vom Stadtzentrum Fasanos zur Hochzeitslocation und zurück in der Nacht geben.</p>
                 </div>
             </div>
 
             <!-- Hotel Section -->
             <div class="travel-section">
                 <div class="travel-icon">🏨</div>
-                <p class="travel-label">Hotel</p>
-                <h2 class="font-serif text-salmon travel-title">Wo übernachten</h2>
-                
+                <h2 class="font-serif text-salmon travel-title">Wo ihr übernachten könnt</h2>
+
                 <div class="travel-content">
-                    <p class="travel-subheading">Übernachtung in Fasano:</p>
-                    
-                    <p>Wir empfehlen, in Fasano zu übernachten, da der Hochzeitstag-Shuttle zum Veranstaltungsort vom Stadtzentrum Fasano abfährt. Die charmante Stadt ist ziemlich klein, bietet aber viele verschiedene Restaurants, Bars und ist perfekt gelegen für jede Art von Tagesausflügen - schaut in den Bereich "Aktivitäten" für etwas Inspiration, wie ihr eure Zeit rund um Fasano verbringen könnt.</p>
-                    
-                    <p>Ihr könnt viele verschiedene Hotels oder Apartments in Fasano auf den großen Plattformen wie booking.com und Airbnb finden. Wir können jedoch zwei schöne Orte besonders empfehlen, die derselben Dame gehören wie unser Hochzeitsort:</p>
-                    
+                    <p class="travel-subheading">Option 1: Übernachtung in Fasano</p>
+
+                    <p>Wir empfehlen, in Fasano zu übernachten, da der Hochzeits-Shuttle zur Location vom Stadtzentrum Fasanos abfährt. Die charmante Stadt ist recht klein, bietet aber viele verschiedene Restaurants, Bars und ist perfekt gelegen für alle Arten von Tagesausflügen - schaut in den Bereich "Unternehmungen" für Inspiration, wie ihr eure Zeit rund um Fasano verbringen könnt.</p>
+
+                    <p>Ihr findet viele verschiedene Hotels oder Apartments in Fasano auf den großen Plattformen wie booking.com und Airbnb. Wir können jedoch zwei besonders schöne Orte empfehlen, die der gleichen Besitzerin wie unsere Hochzeitslocation gehören:</p>
+
                     <div class="hotel-links">
                         <p>Palazzina Alchimia: <a href="https://www.alchimiacollection.com/en/palazzina-alchimia/" target="_blank">https://www.alchimiacollection.com/en/palazzina-alchimia/</a></p>
                         <p>Palazzo Alchimia: <a href="https://www.alchimiacollection.com/en/palazzo-alchimia/" target="_blank">https://www.alchimiacollection.com/en/palazzo-alchimia/</a></p>
                     </div>
-                    
-                    <p class="travel-subheading">Übernachtung in Laufentfernung zum Hochzeitsort:</p>
-                    
-                    <p>Falls ihr es ruhiger und friedlicher mögt, könnte die Übernachtung in einer der traditionellen Masserias in der Landschaft von Fasano genau das Richtige für euch sein. Die Besitzerin unseres Hochzeitsortes empfahl uns einige Masserias/Villen, die zu Fuß von unserem Hochzeitsort erreichbar sind:</p>
-                    
+
+                    <p class="travel-subheading">Option 2: Übernachtung in Laufnähe zur Hochzeitslocation</p>
+
+                    <p>Wenn ihr es lieber ruhiger und friedlicher mögt, könnte eine der traditionellen Masserias im ländlichen Umland von Fasano genau das Richtige für euch sein. Die Besitzerin unserer Hochzeitslocation hat einige Masserias/Villen empfohlen, die fußläufig von unserer Hochzeitslocation entfernt sind:</p>
+
                     <div class="hotel-links">
                         <p>Masseria Monte (hat keine Bilder der Zimmer online, fragt uns nach ihrer Broschüre): <a href="https://masseriamonte.com/en/" target="_blank">https://masseriamonte.com/en/</a></p>
                         <p>Villa Tonia: <a href="https://apulianhousevillatonia.com/" target="_blank">https://apulianhousevillatonia.com/</a></p>
                         <p>Dimora di Tauro: <a href="https://www.booking.com/hotel/it/dimora-tauro-provincia-di-brindisi.de.html" target="_blank">https://www.booking.com/hotel/it/dimora-tauro-provincia-di-brindisi.de.html</a></p>
                         <p>Masseria Lama d'Impisa: <a href="https://www.masseriaimpisa.it/en" target="_blank">https://www.masseriaimpisa.it/en</a></p>
                     </div>
-                    
-                    <p>Einige dieser Orte sind nicht über Online-Plattformen buchbar, also zögert nicht, uns zu kontaktieren, falls ihr Hilfe bei der Buchung eines Zimmers dort benötigt!</p>
+
+                    <p>Einige dieser Unterkünfte können nicht über die Online-Plattformen gebucht werden. Meldet euch gerne bei uns, wenn ihr Hilfe bei der Buchung eines Zimmers benötigt!</p>
+                </div>
+            </div>
+
+            <!-- Weather Widget -->
+            <div class="weather-widget">
+                <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Wetter in Apulien</h2>
+                <p class="weather-subtitle">Historisches Wetter für Ende August</p>
+
+                <div class="weather-main">
+                    <div class="weather-location">Fasano, Italien</div>
+                    <div class="weather-temp" id="currentTemp">28°C / 82°F</div>
+                    <div class="weather-desc" id="weatherDesc">überwiegend klar</div>
+                    <div class="weather-range">Typischer Bereich: <span id="tempRange">28°/21°C (82°/70°F)</span></div>
+                </div>
+
+                <div class="weather-forecast-grid" id="weatherForecast">
+                    <!-- Wedding event forecast will be populated by JavaScript -->
                 </div>
             </div>
         </div>
     </div>
 
     <!-- DRESS CODE PAGE -->
-    <div id="dress-code" class="page">
+    <div id="dress-code" class="page page-blue">
         <div class="section">
             <h2 class="font-serif text-salmon text-center" style="font-size: 3rem; margin-bottom: 4rem;">Dresscode</h2>
 
-            <!-- Welcome Party -->
-            <div class="dress-code-section">
-                <div class="dress-code-image">
-                    <img src="https://i.imgur.com/h6YBju1.png" alt="Willkommensparty Dresscode">
+            <div class="dress-code-tiles">
+                <!-- Welcome Party Tile -->
+                <div class="dress-code-tile" onclick="window.open('https://pin.it/3lU0FqEUh', '_blank')" style="cursor: pointer;">
+                    <div class="dress-code-tile-image">
+                        <img src="https://i.imgur.com/qfXrA2X.jpeg" alt="Willkommensparty">
+                    </div>
+                    <h3 class="dress-code-tile-title">Willkommensparty</h3>
+                    <p class="dress-code-tile-subtitle">24. August 2026</p>
+                    <div class="dress-code-tile-description">
+                        <p><strong>Aperitivo am Strand (Sommer-Cocktail)</strong></p>
+                        <p><strong>Männer:</strong> Luftige, sommerliche Hemden und Hosen in hellen oder neutralen Farben. Lustige Muster sind willkommen!</p>
+                        <p><strong>Frauen:</strong> Sommerlich und strandtauglich – z.B. leichte und luftige Sommerkleider, Zweiteiler oder Jumpsuits.</p>
+                    </div>
+                    <p class="dress-code-tile-cta">Hier klicken für Outfit-Inspiration</p>
                 </div>
-            </div>
 
-            <!-- Wedding Celebration -->
-            <div class="dress-code-section">
-                <div class="dress-code-image">
-                    <img src="https://i.imgur.com/40NNJM5.png" alt="Hochzeitsfeier Dresscode">
+                <!-- Wedding Day Tile -->
+                <div class="dress-code-tile" onclick="window.open('https://pin.it/1DCcsWfwl', '_blank')" style="cursor: pointer;">
+                    <div class="dress-code-tile-image">
+                        <img src="https://i.imgur.com/yrznE6Y.jpeg" alt="Hochzeitstag">
+                    </div>
+                    <h3 class="dress-code-tile-title">Hochzeitstag</h3>
+                    <p class="dress-code-tile-subtitle">25. August 2026</p>
+                    <div class="dress-code-tile-description">
+                        <p><strong>Mediterraner Sommer (Formell)</strong></p>
+                        <p><strong>Männer:</strong> Anzüge in klassischen, neutralen oder hellen Farben (Krawatte optional). Leichte und atmungsaktive Stoffe werden empfohlen! Keine Shorts oder Jeans bitte.</p>
+                        <p><strong>Frauen:</strong> Bodenlange oder Midi-Kleider/Jumpsuits in sommerlichen Farben. Verspielte florale oder maritime Muster sind willkommen!</p>
+                    </div>
+                    <p class="dress-code-tile-cta">Hier klicken für Outfit-Inspiration</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- THINGS TO DO PAGE -->
-    <div id="things" class="page">
-        <!-- Hero Image -->
-        <div class="things-hero">
-            <img src="https://www.turismovieste.it/index/wp-content/uploads/2023/02/polignano-amre.jpg" alt="Polignano a Mare">
-        </div>
-
+    <div id="things" class="page page-blue">
         <div class="section">
             <!-- City Trips Section -->
-            <div class="things-section">
-                <div class="things-icon-circle">
-                    <img src="https://media.worldnomads.com/explore/italy/getty-davidionut-alberobello.jpg" alt="Stadt Icon">
-                </div>
-                <h2 class="font-serif text-salmon things-title">Städtereisen</h2>
-                
-                <div class="things-content">
-                    <p class="text-center">Nur eine kurze Autofahrt von Fasano entfernt findet ihr zahlreiche Städte und kleine Küstenstädte, die einen Besuch wert sind. Die folgenden sind einige unserer Empfehlungen:</p>
-                    
-                    <div class="city-list">
-                        <p><strong>Monopoli:</strong> Küstenstadt mit einem charmanten kleinen Hafen</p>
-                        <p><strong>Matera:</strong> Eine der ältesten Städte der Welt und UNESCO-Weltkulturerbe</p>
-                        <p><strong>Polignano a Mare:</strong> Kleine und malerische Stadt am Wasser mit einem ikonischen Strand</p>
-                        <p><strong>Ostuni:</strong> Eine weiß getünchte Altstadt, die perfekt für Marktspaziergänge oder einen Aperitivo bei Sonnenuntergang ist</p>
-                        <p><strong>Bari:</strong> Puglias Hauptstadt und ein großartiges Ziel für Feinschmecker - schaut unbedingt bei der "Strada delle Orecchiette" vorbei</p>
-                        <p><strong>Lecce:</strong> Ein Paradies für Kunst- und Geschichtsbegeisterte mit barocker Architektur</p>
-                        <p><strong>Locorotondo:</strong> Kleine und malerische Stadt auf einem Hügel, berühmt für ihre Weingüter und schöne Altstadt</p>
-                        <p><strong>Alberobello:</strong> Heimat der sehr einzigartigen und typisch apulischen "Trulli"-Häuser und UNESCO-Weltkulturerbe</p>
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Städtetrips</h2>
+
+                <div class="travel-content">
+                    <p class="text-center">Nur eine kurze Fahrt von Fasano entfernt findet ihr zahlreiche Städte und kleine Küstenorte, die einen Besuch wert sind. Hier sind einige unserer Empfehlungen:</p>
+
+                    <div class="city-tiles">
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/LspiiaY.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Monopoli</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Küstenstadt mit einem charmanten kleinen Hafen
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/OXmeHju.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Matera</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Eine der ältesten Städte der Welt und UNESCO-Weltkulturerbe
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/d1Md4s0.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Polignano a Mare</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Kleine und malerische Stadt am Wasser mit einem ikonischen Strand
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/qsR4na4.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Ostuni</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Eine weiß getünchte Altstadt, perfekt für Marktbummel oder einen Aperitivo zum Sonnenuntergang
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/EMhczdL.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Bari</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Apuliens Hauptstadt und ein tolles Ziel für Foodies - schaut euch unbedingt die "Strada delle Orecchiette" an
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/iaLm0wi.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Lecce</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Ein Paradies für Kunst- und Geschichtsliebhaber mit barocker Architektur
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/4vd5bFU.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Locorotondo</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Kleine und malerische Stadt auf einem Hügel, berühmt für ihre Weingüter und wunderschöne Altstadt
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/C1pciNJ.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Alberobello</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Heimat der einzigartigen und typisch apulischen "Trulli"-Häuser und UNESCO-Weltkulturerbe
+                            </div>
+                        </div>
                     </div>
-                    
-                    <p class="text-center" style="margin-top: 2rem;">Falls ihr bereit seid, etwas weiter zu fahren, bietet der Süden Puglias atemberaubende Badestellen und Steilküsten!</p>
+
+                    <p class="text-center" style="margin-top: 2rem;">Wenn ihr bereit seid, etwas weiter zu fahren, bietet der Süden Apuliens atemberaubende Badestellen und Klippen!</p>
                 </div>
             </div>
 
             <!-- Action & Water Activities Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Action & Wasseraktivitäten</h2>
-                <div class="things-content">
-                    <p class="text-center">Inhalte folgen bald...</p>
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Action & Wasseraktivitäten</h2>
+                <div class="travel-content">
+                    <p class="text-center">Inhalt folgt in Kürze...</p>
                 </div>
             </div>
 
             <!-- Beaches & Beach Clubs Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Strände & Beach Clubs</h2>
-                <div class="things-content">
-                    <p class="text-center">Inhalte folgen bald...</p>
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Strände & Strandclubs</h2>
+                <div class="travel-content">
+                    <p class="text-center">Inhalt folgt in Kürze...</p>
                 </div>
             </div>
 
             <!-- Culinary Experiences Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Kulinarische Erlebnisse</h2>
-                <div class="things-content">
-                    <p class="text-center">Inhalte folgen bald...</p>
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Kulinarische Erlebnisse</h2>
+                <div class="travel-content">
+                    <p class="text-center">Inhalt folgt in Kürze...</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- FAQS PAGE -->
-    <div id="faqs" class="page">
+    <div id="faqs" class="page page-blue">
         <div class="section">
-            <p class="faq-intro">Falls ihr andere Fragen habt als die, die wir hier aufgelistet haben, zögert nicht, uns jederzeit zu kontaktieren! Wir helfen gerne.</p>
+            <div class="travel-section">
+                <div class="travel-content">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <h3 class="font-serif text-salmon faq-question">Bis wann muss ich zusagen?</h3>
+                        <p class="faq-answer">Bitte gebt uns bis zum 1. Mai 2026 Bescheid. Das gibt uns und unseren Dienstleistern genug Zeit, um die letzten Details zu finalisieren.</p>
+                    </div>
 
-            <!-- FAQ Item 1 -->
-            <div class="faq-item">
-                <h2 class="font-serif text-salmon faq-question">Bis wann muss ich zusagen?</h2>
-                <p class="faq-answer">Bitte sagt bis zum 1. Mai 2026 zu. Das gibt uns und unseren Dienstleistern genug Zeit, die letzten Details zu finalisieren.</p>
-            </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <h3 class="font-serif text-salmon faq-question">Wie komme ich zur Hochzeitslocation und zurück?</h3>
+                        <p class="faq-answer">Wenn ihr in einem der Gästehäuser in der Nähe der Masseria Alchimia übernachtet, könnt ihr am Hochzeitstag einfach zur Location laufen.</p>
+                        <p class="faq-answer">Für alle, die in Fasano übernachten, stellen wir einen Shuttle bereit, der euch pünktlich zur Zeremonie zur Location bringt. Nach der Feier wird es auch einen Shuttle-Service zurück nach Fasano geben, sodass sich niemand ums Fahren kümmern muss. Weitere Details zum Shuttle findet ihr im Bereich "Anreise" auf dieser Website.</p>
+                        <p class="faq-answer">Wenn ihr mit dem Auto kommen möchtet, ist die Location nur 5 Minuten vom Zentrum Fasanos entfernt. Parkplätze sind vor Ort verfügbar.</p>
+                    </div>
 
-            <!-- FAQ Item 2 -->
-            <div class="faq-item">
-                <h2 class="font-serif text-salmon faq-question">Wie komme ich zum Hochzeitsort und wieder zurück?</h2>
-                <p class="faq-answer">Falls ihr in einem der Gästehäuser nahe der Masseria Alchimia übernachtet, könnt ihr an unserem Hochzeitstag einfach zum Veranstaltungsort laufen.</p>
-                <p class="faq-answer">Für alle, die in Fasano übernachten, stellen wir einen Shuttle zur Verfügung, der euch rechtzeitig zur Zeremonie zum Veranstaltungsort bringt. Es wird auch einen Shuttle-Service zurück nach Fasano nach der Feier geben, sodass sich niemand Gedanken über das Fahren machen muss. Schaut im Bereich "Anreise" auf dieser Website für weitere Details zum Shuttle.</p>
-                <p class="faq-answer">Falls ihr mit dem Auto kommt, ist der Veranstaltungsort 5 Minuten Fahrt vom Zentrum Fasanos entfernt. Parkplätze sind vor Ort verfügbar.</p>
-            </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <h3 class="font-serif text-salmon faq-question">Was ist mit Geschenken?</h3>
+                        <p class="faq-answer">Dass ihr den ganzen Weg nach Italien kommt, um diesen besonderen Tag mit uns zu feiern, ist alles, was wir uns je gewünscht haben. Daher erwarten wir keine Geschenke.</p>
+                    </div>
 
-            <!-- FAQ Item 3 -->
-            <div class="faq-item">
-                <h2 class="font-serif text-salmon faq-question">Was ist mit Geschenken?</h2>
-                <p class="faq-answer">Dass ihr den ganzen Weg nach Italien kommt, um diesen besonderen Tag mit uns zu feiern, ist alles, was wir uns je gewünscht haben, daher erwarten wir keine Geschenke.</p>
+                    <p class="text-center" style="margin-top: 3rem; font-weight: 600; color: #E47B6A;">Wenn ihr weitere Fragen habt, meldet euch jederzeit gerne bei uns!</p>
+                </div>
             </div>
         </div>
     </div>
@@ -448,14 +497,14 @@
     <div id="rsvp" class="page">
         <div class="placeholder-page">
             <h2>RSVP</h2>
-            <p>Inhalte folgen bald...</p>
+            <p>Inhalt folgt in Kürze...</p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
+        <p style="margin-bottom: 0.25rem;">designed and made by</p>
         <p class="title">Julie & Samuel</p>
-        <p>25. August 2026 • Puglia, Italien</p>
     </footer>
 
     <script src="../script.js"></script>

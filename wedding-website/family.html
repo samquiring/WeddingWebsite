@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julie & Samuel - Wedding</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Homemade+Apple&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <!-- Navigation -->
     <nav>
         <div class="mobile-nav-header">
-            <span class="mobile-nav-title">Julie & Samuel</span>
+            <span class="mobile-nav-title" id="mobilePageTitle">Home</span>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
         <div class="nav-container" id="navContainer">
@@ -28,7 +28,7 @@
             <button class="nav-link" onclick="showPage('faqs')">FAQs</button>
             <button class="nav-link" onclick="showPage('rsvp')">RSVP</button>
             <div class="language-switcher">
-                <a href="#" class="lang-link active">EN</a>
+                <a href="index.html" class="lang-link active">EN</a>
                 <span class="lang-separator">|</span>
                 <a href="de/family.html" class="lang-link">DE</a>
             </div>
@@ -36,194 +36,165 @@
     </nav>
 
     <!-- HOME PAGE -->
-    <div id="home" class="page active">
+    <div id="home" class="page active page-blue">
         <!-- Hero Section -->
-        <div class="hero" style="background-image: url('https://i.imgur.com/qIB4DRq.jpeg'); background-size: cover; background-position: center;">
-            <!-- TO ADD YOUR HERO IMAGE: Replace YOUR_IMAGE_ID above with your actual Imgur ID -->
-            <div class="hero-overlay"></div>
+        <div class="hero-image-container">
+            <img src="https://i.imgur.com/PnH6DN7.jpeg" alt="Julie & Samuel" class="hero-image">
         </div>
 
-        <!-- Names and Date Section -->
-        <div class="section text-center">
-            <div class="names-section">
-                <h2>Samuel<br/>Quiring</h2>
-                <span class="ampersand">&</span>
-                <h2>Julie<br/>Sobirey</h2>
-            </div>
-            
-            <div style="margin: 4rem 0;">
-                <h3 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 1rem;">August 25, 2026</h3>
-                <p style="font-size: 1.125rem; color: #4b5563;">Masseria Alchimia, Puglia, Italy</p>
+        <div class="section">
+            <!-- Date and RSVP Section -->
+            <div class="travel-section text-center">
+                <h3 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 1rem;">August <span class="date-number">25</span>, <span class="date-number">2026</span></h3>
+                <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 3rem;">Masseria Alchimia, Puglia, Italy</p>
+
+                <!-- Countdown Timer -->
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">0</div>
+                        <div class="countdown-label">days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">0</div>
+                        <div class="countdown-label">hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">0</div>
+                        <div class="countdown-label">minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">0</div>
+                        <div class="countdown-label">seconds</div>
+                    </div>
+                </div>
+
+                <button class="btn" style="margin-top: 3rem;">RSVP</button>
             </div>
 
-            <!-- Countdown Timer -->
-            <div class="countdown" id="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">0</div>
-                    <div class="countdown-label">days</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">0</div>
-                    <div class="countdown-label">hours</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">0</div>
-                    <div class="countdown-label">minutes</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">0</div>
-                    <div class="countdown-label">seconds</div>
-                </div>
-            </div>
+            <!-- Where it all began -->
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon text-center travel-title">Where it all began...</h2>
 
-            <button class="btn">RSVP</button>
-        </div>
+                <div class="travel-content">
+                    <p>In summer 2022 two people from different sides of the world had the same idea (at least almost the same idea):</p>
 
-        <!-- Where it all began -->
-        <div class="section section-gray">
-            <h2 class="font-serif text-salmon text-center" style="font-size: 3rem; margin-bottom: 4rem;">Where it all began...</h2>
-            
-            <div class="story-text">
-                <p>In summer 2022 two people from different sides of the world had the same idea (at least almost the same idea):</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Just graduated from college and with a long summer ahead of him, Sam decided to do a 2-month backpacking trip to South East Asia. No plans, no tickets, just vibes.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>A couple thousand miles away, Julie was eagerly planning her 2-week vacation to the same destination. Of course, with a detailed itinerary, a 20€ budget per day - and the plan to "focus on herself" during her first ever solo trip.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>So, on the evening of August 27, these two young travellers found themselves in Bangkok's China Town. Sam, unwillingly stuck in Bangkok, after he was denied entry to Vietnam (as said before no plans just vibes). Julie, starting her long awaited trip and mustering the courage to make some new hostel friends. And both deciding to check out luk hostel's rooftop bar. Julie was looking for a friendly face. Sam was looking to get one drink and go to bed. But alas, after two tuk tuk rides, several shared buckets, and someone lying about their age, the two found themselves in the women's restroom. One down horrendous, the other poorly playing the ukulele.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>What followed were two weeks of endless adventures: Sam following Julie's strict itinerary with 25k steps and only one proper meal per day. Julie coming to terms with extending her 20€ daily budget and slowly realizing, that she would not get the solo trip she had planned, but maybe something even better.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>What both of them didn't realize was that this little Thai romance was gonna turn their lives upside down. A week after Julie's return to Germany, they booked her first of many flights to Seattle. And this was just the beginning. While doing long distance for over 1.5 years, Julie fell in love with Sam's home (including Lucky Boy's breakfast burritos, the abundance of Starbucks locations, and of course his incredible family and friends). Sam started learning German and got a taste of German culture (and German beer) at the Cologne Karneval and Oktoberfest in Munich.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Fast forward to 2024, a lot had changed. The days of daily FaceTime calls, 10-hour plane rides and US border anxiety were finally over. Sam moved to Germany and the two embarked on their biggest adventure so far - moving in together in the exciting city of Berlin.</p>
-            </div>
+                    <p>Just graduated from college and with a long summer ahead of him, Sam decided to do a 2-month backpacking trip to South East Asia. No plans, no tickets, just vibes.</p>
 
-            <!-- Proposal Photo -->
-            <img src="https://i.imgur.com/axOxjHq.jpeg" alt="The Proposal" style="width: 100%; max-width: 800px; margin: 3rem auto; display: block; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <p>A couple thousand miles away, Julie was eagerly planning her 2-week vacation to the same destination. Of course, with a detailed itinerary, a 20€ budget per day - and the plan to "focus on herself" during her first ever solo trip.</p>
+
+                    <p>So, on the evening of August 27, these two young travellers found themselves in Bangkok's China Town. Sam, unwillingly stuck in Bangkok, after he was denied entry to Vietnam (as said before no plans just vibes). Julie, starting her long awaited trip and mustering the courage to make some new hostel friends. And both deciding to check out luk hostel's rooftop bar. Julie was looking for a friendly face. Sam was looking to get one drink and go to bed. But alas, after two tuk tuk rides, several shared buckets, and someone lying about their age, the two found themselves in the women's restroom. One down horrendous, the other poorly playing the ukulele.</p>
+
+                    <p>What followed were two weeks of endless adventures: Sam following Julie's strict itinerary with 25k steps and only one proper meal per day. Julie coming to terms with extending her 20€ daily budget and slowly realizing, that she would not get the solo trip she had planned, but maybe something even better.</p>
+
+                    <p>What both of them didn't realize was that this little Thai romance was gonna turn their lives upside down. A week after Julie's return to Germany, they booked her first of many flights to Seattle. And this was just the beginning. While doing long distance for over 1.5 years, Julie fell in love with Sam's home (including Lucky Boy's breakfast burritos, the abundance of Starbucks locations, and of course his incredible family and friends). Sam started learning German and got a taste of German culture (and German beer) at the Cologne Karneval and Oktoberfest in Munich.</p>
+
+                    <p>Fast forward to 2024, a lot had changed. The days of daily FaceTime calls, 10-hour plane rides and US border anxiety were finally over. Sam moved to Germany and the two embarked on their biggest adventure so far - moving in together in the exciting city of Berlin.</p>
+
+                    <!-- Proposal Photo -->
+                    <img src="https://i.imgur.com/axOxjHq.jpeg" alt="The Proposal" style="width: 100%; max-width: 800px; margin: 3rem auto; display: block; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- SCHEDULE PAGE -->
-    <div id="schedule" class="page">
+    <div id="schedule" class="page page-blue">
         <div class="section">
-            <p class="schedule-intro">
-                We'd love for all our friends and family from around the world to have some time to get to know each other and connect - that's why we have planned some fun activities and events around our wedding day. Check out the schedule below to see what awaits you in Puglia, we can't wait to celebrate with you!
-            </p>
-
-            <!-- Sunday, August 23 -->
-            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 3rem;">Sunday, August 23, 2026</h2>
-            
-            <div class="event-card family-event">
-                <div class="event-grid">
-                    <div>
-                        <h3 class="event-title">Rehearsal Dinner</h3>
-                        <p class="event-time">7:00 pm - 10:00 pm</p>
-                        <div class="family-badge">Family Only</div>
+            <div class="events-container">
+                <!-- Rehearsal Dinner -->
+                <div class="event-card-new">
+                    <div class="event-image-circle">
+                        <img src="https://i.imgur.com/RiW8GaZ.png" alt="Rehearsal Dinner">
                     </div>
-                    
-                    <div>
-                        <p class="event-location">Pizzeria del Portico</p>
-                        <p class="event-location-sub">Fasano, Italy</p>
-                        
-                        <p class="event-description">
-                            An intimate dinner for our closest family members to get to know each other before the big celebration. Join us for authentic Italian pizza and good conversation!
-                        </p>
-                        
-                        <div class="btn-group">
-                            <a href="https://maps.google.com/?q=Pizzeria+del+Portico,+Fasano,+Italy" target="_blank" class="btn">Map</a>
-                            <button class="btn" onclick="addToCalendar('rehearsal')">Add to calendar</button>
-                        </div>
+                    <h3 class="event-name">Rehearsal Dinner</h3>
+                    <div class="event-datetime">
+                        <span class="event-date">Sunday, August <span class="date-number">23</span>, <span class="date-number">2026</span></span>
+                        <span class="event-time-small"><span class="date-number">7:00</span> pm - <span class="date-number">10:00</span> pm</span>
+                    </div>
+                    <p class="event-location">Pizzeria del Portico</p>
+                    <p class="event-location-sub">Fasano, Italy</p>
+
+                    <p class="event-description" style="font-style: italic; color: #E47B6A;">
+                        If you're seeing this, you are invited! :)
+                    </p>
+
+                    <p class="event-description">
+                        An intimate dinner for our closest family members to get to know each other before the big celebration. Join us for authentic Italian pizza and good conversation!
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="https://maps.google.com/?q=Pizzeria+del+Portico,+Fasano,+Italy" target="_blank" class="btn">Map</a>
+                        <button class="btn" onclick="addToCalendar('rehearsal')">Add to calendar</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Monday, August 24 -->
-            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Monday, August 24, 2026</h2>
-            
-            <div class="event-card">
-                <div class="event-grid">
-                    <div>
-                        <h3 class="event-title">Welcome Party</h3>
-                        <p class="event-time">7:00 pm - 11:00 pm</p>
+                <!-- Welcome Party -->
+                <div class="event-card-new">
+                    <div class="event-image-circle">
+                        <img src="https://i.imgur.com/RiW8GaZ.png" alt="Welcome Party">
                     </div>
-                    
-                    <div>
-                        <p class="event-location">Mareducato</p>
-                        <p class="event-location-sub">Savelletri, Italy</p>
-                        
-                        <p class="event-description">
-                            We will have an open bar with wine and beer accompanied by some finger food, so we would recommend you grab dinner beforehand.
-                        </p>
-                        
-                        <p class="event-description">
-                            For all our Cocktail/Aperol Spritz lovers: If you fancy something other than wine or beer, you are able to buy the drink of your choice at their regular bar.
-                        </p>
-                        
-                        <div class="btn-group">
-                            <a href="https://maps.google.com/?q=Mareducato,+Savelletri,+Italy" target="_blank" class="btn">Map</a>
-                            <button class="btn" onclick="addToCalendar('welcome')">Add to calendar</button>
-                        </div>
+                    <h3 class="event-name">Welcome Party</h3>
+                    <div class="event-datetime">
+                        <span class="event-date">Monday, August <span class="date-number">24</span>, <span class="date-number">2026</span></span>
+                        <span class="event-time-small"><span class="date-number">7:00</span> pm - <span class="date-number">11:00</span> pm</span>
+                    </div>
+                    <p class="event-location">Mareducato</p>
+                    <p class="event-location-sub">Savelletri, Italy</p>
+
+                    <p class="event-description">
+                        We will have an open bar with wine and beer accompanied by some finger food, so we would recommend you grab dinner beforehand.
+                    </p>
+
+                    <p class="event-description">
+                        For all our Cocktail/Aperol Spritz lovers: If you fancy something other than wine or beer, you are able to buy the drink of your choice at their regular bar.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="https://maps.google.com/?q=Mareducato,+Savelletri,+Italy" target="_blank" class="btn">Map</a>
+                        <button class="btn" onclick="addToCalendar('welcome')">Add to calendar</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Tuesday, August 25 -->
-            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Tuesday, August 25, 2026</h2>
-            
-            <div class="event-card">
-                <div class="event-grid">
-                    <div>
-                        <h3 class="event-title">Wedding Celebration</h3>
-                        <p class="event-time">Tue, Aug 25, 2026, 4:00 pm - Wed, Aug 26, 2026, 2:00 am</p>
+                <!-- Wedding Celebration -->
+                <div class="event-card-new">
+                    <div class="event-image-circle">
+                        <img src="https://i.imgur.com/aaohyqm.jpeg" alt="Wedding Celebration">
                     </div>
-                    
-                    <div>
-                        <p class="event-location">Masseria Alchimia</p>
-                        <p class="event-location-sub">Fasano, Italy</p>
-                        
-                        <p class="event-description">
-                            Our wedding will be a mix of German and US wedding traditions. We will start the celebration with a symbolic ceremony in the olive grove of the Masseria, followed by an Apulian BBQ dinner and reception (with lots of dancing of course!).
-                        </p>
-                        
-                        <p class="event-description">
-                            The detailed program and activities planned for the day will remain a surprise for now...
-                        </p>
-                        
-                        <div class="btn-group">
-                            <a href="https://maps.google.com/?q=Masseria+Alchimia,+Fasano,+Italy" target="_blank" class="btn">Map</a>
-                            <button class="btn" onclick="addToCalendar('wedding')">Add to calendar</button>
-                        </div>
+                    <h3 class="event-name">Wedding Celebration</h3>
+                    <div class="event-datetime">
+                        <span class="event-date">Tuesday, August <span class="date-number">25</span>, <span class="date-number">2026</span></span>
+                        <span class="event-time-small"><span class="date-number">4:00</span> pm - <span class="date-number">2:00</span> am</span>
+                    </div>
+                    <p class="event-location">Masseria Alchimia</p>
+                    <p class="event-location-sub">Fasano, Italy</p>
+
+                    <p class="event-description">
+                        Our wedding will be a mix of German and US wedding traditions. We will start the celebration with a symbolic ceremony in the olive grove of the Masseria, followed by an Apulian BBQ dinner and reception (with lots of dancing of course!).
+                    </p>
+
+                    <p class="event-description">
+                        The detailed program and activities planned for the day will remain a surprise for now...
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="https://maps.google.com/?q=Masseria+Alchimia,+Fasano,+Italy" target="_blank" class="btn">Map</a>
+                        <button class="btn" onclick="addToCalendar('wedding')">Add to calendar</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Wednesday, August 26 -->
-            <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin: 4rem 0 3rem;">Wednesday, August 26, 2026</h2>
-            
-            <div class="event-card">
-                <div class="event-grid">
-                    <div>
-                        <h3 class="event-title">Beach Day</h3>
-                        <p class="event-time">12:00 pm - 6:00 pm</p>
+                <!-- Beach Day -->
+                <div class="event-card-new">
+                    <div class="event-image-circle">
+                        <img src="https://static1.squarespace.com/static/55a976e7e4b0a996cf2e4637/55aac24ce4b0b69fc5b28d11/5b882ee24d7a9cd182de8562/1603130094180/Lido+Santo+Stefano.jpg?format=1500w" alt="Beach Day">
                     </div>
-                    
-                    <div>
-                        <div class="btn-group">
-                            <button class="btn" onclick="addToCalendar('beach')">Add to calendar</button>
-                        </div>
+                    <h3 class="event-name">Beach Day</h3>
+                    <div class="event-datetime">
+                        <span class="event-date">Wednesday, August <span class="date-number">26</span>, <span class="date-number">2026</span></span>
+                        <span class="event-time-small"><span class="date-number">12:00</span> pm - <span class="date-number">6:00</span> pm</span>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn" onclick="addToCalendar('beach')">Add to calendar</button>
                     </div>
                 </div>
             </div>
@@ -231,48 +202,18 @@
     </div>
 
     <!-- TRAVEL PAGE -->
-    <div id="travel" class="page">
-        <!-- Hero Image for Travel -->
-        <div class="travel-hero">
-            <!-- TO ADD TRAVEL HERO IMAGE: Replace YOUR_TRAVEL_IMAGE_ID below -->
-            <img src="https://www.italythisway.com/images/places/fullsize/monopoli.jpg" alt="Puglia Harbor" style="width: 100%; max-width: 800px; margin: 0 auto; display: block;">
-        </div>
-
+    <div id="travel" class="page page-blue">
         <div class="section">
-            <!-- Weather Widget -->
-            <div class="weather-widget">
-                <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Weather in Puglia</h2>
-                <p class="weather-subtitle">Historical weather for late August</p>
-                <div class="weather-container">
-                    <div class="weather-current">
-                        <div class="weather-location">Fasano, Italy</div>
-                        <div class="weather-temp" id="currentTemp">--°C</div>
-                        <div class="weather-desc" id="weatherDesc">Loading...</div>
-                        <div class="weather-details">
-                            <span>Typical Range: <span id="tempRange">--°C</span></span>
-                            <span>Avg. Humidity: <span id="humidity">--%</span></span>
-                            <span>Chance of Rain: <span id="rainChance">--%</span></span>
-                        </div>
-                    </div>
-                    <div class="weather-forecast" id="weatherForecast">
-                        <!-- Wedding event forecast will be populated by JavaScript -->
-                    </div>
-                </div>
-                <div class="weather-note">
-                    <p>Based on historical August data for Fasano (source: WeatherSpark.com). Perfect weather for a destination wedding! 🌞</p>
-                </div>
-            </div>
             <!-- Flight Section -->
             <div class="travel-section">
                 <div class="travel-icon">✈️</div>
-                <p class="travel-label">Flight</p>
                 <h2 class="font-serif text-salmon travel-title">How to get to Puglia</h2>
-                
+
                 <div class="travel-content">
                     <p>We recommend flying into Bari, Puglia's main international airport. From there, you can easily reach Fasano, where the wedding takes place, by car (50 mins) or train (1.5 hours).</p>
-                    
+
                     <p>Many German airports offer direct flights to Bari several times per week (e.g. from Berlin, Düsseldorf, Cologne, Hamburg, Frankfurt and Munich).</p>
-                    
+
                     <p>Unfortunately, there are no direct flights from the US to Bari. However, we checked and you can reach Bari with one layover from almost any major US airport. Alternatively, you can fly direct into Rome and then take a direct train to Bari (the trains in Italy are actually quite cheap and well organized, so this is definitely a solid option to consider).</p>
                 </div>
             </div>
@@ -280,13 +221,12 @@
             <!-- Shuttle Section -->
             <div class="travel-section">
                 <div class="travel-icon">🚌</div>
-                <p class="travel-label">Shuttle</p>
                 <h2 class="font-serif text-salmon travel-title">How to get to Masseria Alchimia</h2>
                 <p class="travel-subtitle">August 25, 2026 3:45 pm - 2:00 am</p>
-                
+
                 <div class="travel-content">
                     <p>Our wedding venue is located right outside of Fasano in the countryside. A shuttle from the center of Fasano will bring you to the venue on our wedding day (10 min drive).</p>
-                    
+
                     <p>At night, there will be a shuttle back from our venue to the city center of Fasano. We will let you know about the exact pick-up times and location a couple of weeks before the wedding.</p>
                 </div>
             </div>
@@ -294,12 +234,11 @@
             <!-- Rental Car Section -->
             <div class="travel-section">
                 <div class="travel-icon">🚗</div>
-                <p class="travel-label">Rental Car</p>
                 <h2 class="font-serif text-salmon travel-title">How to get around in Puglia</h2>
-                
+
                 <div class="travel-content">
                     <p>We highly recommend to rent a car or carpool with other guests to be flexible and get the most out of your stay in Puglia. You will find plenty of different local and international car rental companies at Bari Airport.</p>
-                    
+
                     <p>If you decide to skip on the car rental, you still have good options to get around, as Fasano is well connected through trains and buses. For the day of the wedding, we will have a shuttle from the city center of Fasano to the wedding venue and back at night.</p>
                 </div>
             </div>
@@ -307,116 +246,217 @@
             <!-- Hotel Section -->
             <div class="travel-section">
                 <div class="travel-icon">🏨</div>
-                <p class="travel-label">Hotel</p>
                 <h2 class="font-serif text-salmon travel-title">Where to stay</h2>
-                
+
                 <div class="travel-content">
-                    <p class="travel-subheading">Stay in Fasano:</p>
-                    
+                    <p class="travel-subheading">Option 1: Stay in Fasano</p>
+
                     <p>We recommend to stay in Fasano, as the Wedding Day Shuttle to the venue will run from the Fasano city center. The charming town is quite small but offers a lot of different restaurants, bars and is perfectly located for any kind of day-trips - check the "Things to do" section for some inspiration on how to spend your time around Fasano.</p>
-                    
+
                     <p>You can find plenty of different hotels or apartments in Fasano on the major platforms such as booking.com and Airbnb. However, we can recommend two beautiful places in particular, which are owned by the same lady as our wedding venue:</p>
-                    
+
                     <div class="hotel-links">
                         <p>Palazzina Alchimia: <a href="https://www.alchimiacollection.com/en/palazzina-alchimia/" target="_blank">https://www.alchimiacollection.com/en/palazzina-alchimia/</a></p>
                         <p>Palazzo Alchimia: <a href="https://www.alchimiacollection.com/en/palazzo-alchimia/" target="_blank">https://www.alchimiacollection.com/en/palazzo-alchimia/</a></p>
                     </div>
-                    
-                    <p class="travel-subheading">Stay walking-distance to the wedding venue:</p>
-                    
+
+                    <p class="travel-subheading">Option 2: Stay walking-distance to the wedding venue</p>
+
                     <p>If you like it more quiet and peaceful, staying at one of the traditional Masserias in the countryside of Fasano might be just the right pick for you. The owner of our wedding venue recommended a few Masserias/Villas that are walking distance from our wedding venue:</p>
-                    
+
                     <div class="hotel-links">
                         <p>Masseria Monte (has no pictures of the rooms online, ask us for their brochure): <a href="https://masseriamonte.com/en/" target="_blank">https://masseriamonte.com/en/</a></p>
                         <p>Villa Tonia: <a href="https://apulianhousevillatonia.com/" target="_blank">https://apulianhousevillatonia.com/</a></p>
                         <p>Dimora di Tauro: <a href="https://www.booking.com/hotel/it/dimora-tauro-provincia-di-brindisi.de.html" target="_blank">https://www.booking.com/hotel/it/dimora-tauro-provincia-di-brindisi.de.html</a></p>
                         <p>Masseria Lama d'Impisa: <a href="https://www.masseriaimpisa.it/en" target="_blank">https://www.masseriaimpisa.it/en</a></p>
                     </div>
-                    
+
                     <p>Some of these places are not available for booking through any of the online platforms, so feel free to reach out to us if you need any assistance with booking a room there!</p>
+                </div>
+            </div>
+
+            <!-- Weather Widget -->
+            <div class="weather-widget">
+                <h2 class="font-serif text-salmon text-center" style="font-size: 2.5rem; margin-bottom: 1rem;">Weather in Puglia</h2>
+                <p class="weather-subtitle">Historical weather for late August</p>
+
+                <div class="weather-main">
+                    <div class="weather-location">Fasano, Italy</div>
+                    <div class="weather-temp" id="currentTemp">28°C / 82°F</div>
+                    <div class="weather-desc" id="weatherDesc">mostly clear</div>
+                    <div class="weather-range">Typical Range: <span id="tempRange">28°/21°C (82°/70°F)</span></div>
+                </div>
+
+                <div class="weather-forecast-grid" id="weatherForecast">
+                    <!-- Wedding event forecast will be populated by JavaScript -->
                 </div>
             </div>
         </div>
     </div>
 
     <!-- DRESS CODE PAGE -->
-    <div id="dress-code" class="page">
+    <div id="dress-code" class="page page-blue">
         <div class="section">
             <h2 class="font-serif text-salmon text-center" style="font-size: 3rem; margin-bottom: 4rem;">Dress Code</h2>
 
-            <!-- Welcome Party -->
-            <div class="dress-code-section">
-                <div class="dress-code-image">
-                    <!-- TO ADD WELCOME PARTY DRESS CODE IMAGE: Replace YOUR_WELCOME_PARTY_DRESSCODE_IMAGE_ID below -->
-                    <img src="https://i.imgur.com/h6YBju1.png" alt="Welcome Party Dress Code">
+            <div class="dress-code-tiles">
+                <!-- Welcome Party Tile -->
+                <div class="dress-code-tile" onclick="window.open('https://pin.it/3lU0FqEUh', '_blank')" style="cursor: pointer;">
+                    <div class="dress-code-tile-image">
+                        <img src="https://i.imgur.com/qfXrA2X.jpeg" alt="Welcome Party">
+                    </div>
+                    <h3 class="dress-code-tile-title">Welcome Party</h3>
+                    <p class="dress-code-tile-subtitle">August 24, 2026</p>
+                    <div class="dress-code-tile-description">
+                        <p><strong>Aperitivo by the Beach (Summer Cocktail)</strong></p>
+                        <p><strong>Men:</strong> Flowy, summery shirts and pants in light or neutral colors. Fun patterns welcome!</p>
+                        <p><strong>Women:</strong> Think summery and beachy – e.g. light and flowy sundresses, two-pieces or jumpsuits.</p>
+                    </div>
+                    <p class="dress-code-tile-cta">Click here for some outfit inspiration</p>
                 </div>
-            </div>
 
-            <!-- Wedding Celebration -->
-            <div class="dress-code-section">
-                <div class="dress-code-image">
-                    <!-- TO ADD WEDDING DRESS CODE IMAGE: Replace YOUR_WEDDING_DRESSCODE_IMAGE_ID below -->
-                    <img src="https://i.imgur.com/40NNJM5.png" alt="Wedding Celebration Dress Code">
+                <!-- Wedding Day Tile -->
+                <div class="dress-code-tile" onclick="window.open('https://pin.it/1DCcsWfwl', '_blank')" style="cursor: pointer;">
+                    <div class="dress-code-tile-image">
+                        <img src="https://i.imgur.com/yrznE6Y.jpeg" alt="Wedding Day">
+                    </div>
+                    <h3 class="dress-code-tile-title">Wedding Day</h3>
+                    <p class="dress-code-tile-subtitle">August 25, 2026</p>
+                    <div class="dress-code-tile-description">
+                        <p><strong>Mediterranean Summer (Formal)</strong></p>
+                        <p><strong>Men:</strong> Suits in classic, neutral or light colours (tie optional). Light and breathable fabrics are recommended! No shorts or denim please.</p>
+                        <p><strong>Women:</strong> Floor-length or midi dresses/jumpsuits in summery colours. Fun floral or aquatic patterns welcome!</p>
+                    </div>
+                    <p class="dress-code-tile-cta">Click here for some outfit inspiration</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- THINGS TO DO PAGE -->
-    <div id="things" class="page">
-        <!-- Hero Image -->
-        <div class="things-hero">
-            <!-- TO ADD THINGS TO DO HERO IMAGE: Replace YOUR_THINGS_IMAGE_ID below -->
-            <img src="https://www.turismovieste.it/index/wp-content/uploads/2023/02/polignano-amre.jpg" alt="Polignano a Mare">
-        </div>
-
+    <div id="things" class="page page-blue">
         <div class="section">
             <!-- City Trips Section -->
-            <div class="things-section">
-                <div class="things-icon-circle">
-                    <!-- TO ADD CITY ICON IMAGE: Replace YOUR_CITY_ICON_ID below -->
-                    <img src="https://media.worldnomads.com/explore/italy/getty-davidionut-alberobello.jpg" alt="City Icon">
-                </div>
-                <h2 class="font-serif text-salmon things-title">City Trips</h2>
-                
-                <div class="things-content">
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">City Trips</h2>
+
+                <div class="travel-content">
                     <p class="text-center">Just a short drive from Fasano, you will find numerous cities and little beach towns that are worth a visit. The following are some of our recommendations:</p>
-                    
-                    <div class="city-list">
-                        <p><strong>Monopoli:</strong> Coastal town with a charming little port</p>
-                        <p><strong>Matera:</strong> One of the oldest cities in the world and a UNESCO World Heritage site</p>
-                        <p><strong>Polignano a Mare:</strong> Small and picturesque town by the water with an iconic beach</p>
-                        <p><strong>Ostuni:</strong> A whitewashed old town that is perfect for market strolls or a sunset aperitivo</p>
-                        <p><strong>Bari:</strong> Puglia's capital and a great destination for foodies - make sure to check out the "Strada delle Orecchiette"</p>
-                        <p><strong>Lecce:</strong> A paradise for art and history enthusiasts with baroque architecture</p>
-                        <p><strong>Locorotondo:</strong> Small and quaint town on a hill, famous for it's wineries and beautiful old town</p>
-                        <p><strong>Alberobello:</strong> Home of the very unique and typical Apulian "Trulli" houses and a UNESCO World Heritage site</p>
+
+                    <div class="city-tiles">
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/LspiiaY.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Monopoli</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Coastal town with a charming little port
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/OXmeHju.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Matera</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                One of the oldest cities in the world and a UNESCO World Heritage site
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/d1Md4s0.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Polignano a Mare</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Small and picturesque town by the water with an iconic beach
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/qsR4na4.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Ostuni</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                A whitewashed old town that is perfect for market strolls or a sunset aperitivo
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/EMhczdL.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Bari</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Puglia's capital and a great destination for foodies - make sure to check out the "Strada delle Orecchiette"
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/iaLm0wi.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Lecce</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                A paradise for art and history enthusiasts with baroque architecture
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/4vd5bFU.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Locorotondo</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Small and quaint town on a hill, famous for it's wineries and beautiful old town
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/C1pciNJ.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Alberobello</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Home of the very unique and typical Apulian "Trulli" houses and a UNESCO World Heritage site
+                            </div>
+                        </div>
                     </div>
-                    
+
                     <p class="text-center" style="margin-top: 2rem;">If you're willing to drive a little further, the south of Puglia has stunning swimming spots and cliffsides to offer!</p>
                 </div>
             </div>
 
             <!-- Action & Water Activities Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Action & Water Activities</h2>
-                <div class="things-content">
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Action & Water Activities</h2>
+                <div class="travel-content">
                     <p class="text-center">Content coming soon...</p>
                 </div>
             </div>
 
             <!-- Beaches & Beach Clubs Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Beaches & Beach Clubs</h2>
-                <div class="things-content">
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Beaches & Beach Clubs</h2>
+                <div class="travel-content">
                     <p class="text-center">Content coming soon...</p>
                 </div>
             </div>
 
             <!-- Culinary Experiences Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Culinary Experiences</h2>
-                <div class="things-content">
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Culinary Experiences</h2>
+                <div class="travel-content">
                     <p class="text-center">Content coming soon...</p>
                 </div>
             </div>
@@ -424,28 +464,32 @@
     </div>
 
     <!-- FAQS PAGE -->
-    <div id="faqs" class="page">
+    <div id="faqs" class="page page-blue">
         <div class="section">
-            <p class="faq-intro">If you have any other questions than what we've listed here, feel free to reach out to us at any point! We're happy to help.</p>
+            <div class="travel-section">
+                <div class="travel-content">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <h3 class="font-serif text-salmon faq-question">When do I need to RSVP by?</h3>
+                        <p class="faq-answer">Please RSVP by May 1st, 2026. This gives us and our vendors enough time to finalize the last details.</p>
+                    </div>
 
-            <!-- FAQ Item 1 -->
-            <div class="faq-item">
-                <h2 class="font-serif text-salmon faq-question">When do I need to RSVP by?</h2>
-                <p class="faq-answer">Please RSVP by May 1st, 2026. This gives us and our vendors enough time to finalize the last details.</p>
-            </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <h3 class="font-serif text-salmon faq-question">How do I get to the wedding venue and back?</h3>
+                        <p class="faq-answer">If you stay at one of the guesthouses close to Masseria Alchimia, you can easily walk to the venue on our wedding day.</p>
+                        <p class="faq-answer">For everyone staying in Fasano, we will provide a shuttle that takes you to the venue right on time for the ceremony. There will also be a shuttle service back to Fasano after the celebration, so nobody needs to worry about driving. Check the "Travel" section on this website for more details on the shuttle.</p>
+                        <p class="faq-answer">If you decide to come by car, the venue is a 5-minute drive away from the center of Fasano. Parking spots will be available on-site.</p>
+                    </div>
 
-            <!-- FAQ Item 2 -->
-            <div class="faq-item">
-                <h2 class="font-serif text-salmon faq-question">How do I get to the wedding venue and back?</h2>
-                <p class="faq-answer">If you stay at one of the guesthouses close to Masseria Alchimia, you can easily walk to the venue on our wedding day.</p>
-                <p class="faq-answer">For everyone staying in Fasano, we will provide a shuttle that takes you to the venue right on time for the ceremony. There will also be a shuttle service back to Fasano after the celebration, so nobody needs to worry about driving. Check the "Travel" section on this website for more details on the shuttle.</p>
-                <p class="faq-answer">If you decide to come by car, the venue is a 5-minute drive away from the center of Fasano. Parking spots will be available on-site.</p>
-            </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <h3 class="font-serif text-salmon faq-question">What about gifts?</h3>
+                        <p class="faq-answer">You coming all the way to Italy to celebrate this special day with us is all we ever asked for, therefore we don't expect any gifts.</p>
+                    </div>
 
-            <!-- FAQ Item 3 -->
-            <div class="faq-item">
-                <h2 class="font-serif text-salmon faq-question">What about gifts?</h2>
-                <p class="faq-answer">You coming all the way to Italy to celebrate this special day with us is all we ever asked for, therefore we don't expect any gifts.</p>
+                    <p class="text-center" style="margin-top: 3rem; font-weight: 600; color: #E47B6A;">If you have any other questions, feel free to reach out to us at any point!</p>
+                </div>
             </div>
         </div>
     </div>
@@ -459,8 +503,8 @@
 
     <!-- Footer -->
     <footer>
+        <p style="margin-bottom: 0.25rem;">designed and made by</p>
         <p class="title">Julie & Samuel</p>
-        <p>August 25, 2026 • Puglia, Italy</p>
     </footer>
 
     <script src="script.js"></script>
