@@ -36,76 +36,64 @@
     </nav>
 
     <!-- HOME PAGE -->
-    <div id="home" class="page active">
+    <div id="home" class="page active page-blue">
         <!-- Hero Section -->
         <div class="hero-image-container">
             <img src="https://i.imgur.com/PnH6DN7.jpeg" alt="Julie & Samuel" class="hero-image">
         </div>
 
-        <!-- Names and Date Section -->
-        <div class="section text-center">
-            <div style="margin: 4rem 0;">
+        <div class="section">
+            <!-- Date and RSVP Section -->
+            <div class="travel-section text-center">
                 <h3 class="font-serif text-salmon" style="font-size: 2.5rem; margin-bottom: 1rem;">August <span class="date-number">25</span>, <span class="date-number">2026</span></h3>
-                <p style="font-size: 1.125rem; color: #4b5563;">Masseria Alchimia, Puglia, Italy</p>
+                <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 3rem;">Masseria Alchimia, Puglia, Italy</p>
+
+                <!-- Countdown Timer -->
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">0</div>
+                        <div class="countdown-label">days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">0</div>
+                        <div class="countdown-label">hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">0</div>
+                        <div class="countdown-label">minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">0</div>
+                        <div class="countdown-label">seconds</div>
+                    </div>
+                </div>
+
+                <button class="btn" style="margin-top: 3rem;">RSVP</button>
             </div>
 
-            <!-- Countdown Timer -->
-            <div class="countdown" id="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">0</div>
-                    <div class="countdown-label">days</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">0</div>
-                    <div class="countdown-label">hours</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">0</div>
-                    <div class="countdown-label">minutes</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">0</div>
-                    <div class="countdown-label">seconds</div>
-                </div>
-            </div>
+            <!-- Where it all began -->
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon text-center travel-title">Where it all began...</h2>
 
-            <button class="btn">RSVP</button>
-        </div>
+                <div class="travel-content">
+                    <p>In summer 2022 two people from different sides of the world had the same idea (at least almost the same idea):</p>
 
-        <!-- Where it all began -->
-        <div class="section section-gray">
-            <h2 class="font-serif text-salmon text-center" style="font-size: 3rem; margin-bottom: 4rem;">Where it all began...</h2>
-            
-            <div class="story-text">
-                <p>In summer 2022 two people from different sides of the world had the same idea (at least almost the same idea):</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Just graduated from college and with a long summer ahead of him, Sam decided to do a 2-month backpacking trip to South East Asia. No plans, no tickets, just vibes.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>A couple thousand miles away, Julie was eagerly planning her 2-week vacation to the same destination. Of course, with a detailed itinerary, a 20€ budget per day - and the plan to "focus on herself" during her first ever solo trip.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>So, on the evening of August 27, these two young travellers found themselves in Bangkok's China Town. Sam, unwillingly stuck in Bangkok, after he was denied entry to Vietnam (as said before no plans just vibes). Julie, starting her long awaited trip and mustering the courage to make some new hostel friends. And both deciding to check out luk hostel's rooftop bar. Julie was looking for a friendly face. Sam was looking to get one drink and go to bed. But alas, after two tuk tuk rides, several shared buckets, and someone lying about their age, the two found themselves in the women's restroom. One down horrendous, the other poorly playing the ukulele.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>What followed were two weeks of endless adventures: Sam following Julie's strict itinerary with 25k steps and only one proper meal per day. Julie coming to terms with extending her 20€ daily budget and slowly realizing, that she would not get the solo trip she had planned, but maybe something even better.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>What both of them didn't realize was that this little Thai romance was gonna turn their lives upside down. A week after Julie's return to Germany, they booked her first of many flights to Seattle. And this was just the beginning. While doing long distance for over 1.5 years, Julie fell in love with Sam's home (including Lucky Boy's breakfast burritos, the abundance of Starbucks locations, and of course his incredible family and friends). Sam started learning German and got a taste of German culture (and German beer) at the Cologne Karneval and Oktoberfest in Munich.</p>
-            </div>
-            
-            <div class="story-text">
-                <p>Fast forward to 2024, a lot had changed. The days of daily FaceTime calls, 10-hour plane rides and US border anxiety were finally over. Sam moved to Germany and the two embarked on their biggest adventure so far - moving in together in the exciting city of Berlin.</p>
-            </div>
+                    <p>Just graduated from college and with a long summer ahead of him, Sam decided to do a 2-month backpacking trip to South East Asia. No plans, no tickets, just vibes.</p>
 
-            <!-- Proposal Photo -->
-            <img src="https://i.imgur.com/axOxjHq.jpeg" alt="The Proposal" style="width: 100%; max-width: 800px; margin: 3rem auto; display: block; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <p>A couple thousand miles away, Julie was eagerly planning her 2-week vacation to the same destination. Of course, with a detailed itinerary, a 20€ budget per day - and the plan to "focus on herself" during her first ever solo trip.</p>
+
+                    <p>So, on the evening of August 27, these two young travellers found themselves in Bangkok's China Town. Sam, unwillingly stuck in Bangkok, after he was denied entry to Vietnam (as said before no plans just vibes). Julie, starting her long awaited trip and mustering the courage to make some new hostel friends. And both deciding to check out luk hostel's rooftop bar. Julie was looking for a friendly face. Sam was looking to get one drink and go to bed. But alas, after two tuk tuk rides, several shared buckets, and someone lying about their age, the two found themselves in the women's restroom. One down horrendous, the other poorly playing the ukulele.</p>
+
+                    <p>What followed were two weeks of endless adventures: Sam following Julie's strict itinerary with 25k steps and only one proper meal per day. Julie coming to terms with extending her 20€ daily budget and slowly realizing, that she would not get the solo trip she had planned, but maybe something even better.</p>
+
+                    <p>What both of them didn't realize was that this little Thai romance was gonna turn their lives upside down. A week after Julie's return to Germany, they booked her first of many flights to Seattle. And this was just the beginning. While doing long distance for over 1.5 years, Julie fell in love with Sam's home (including Lucky Boy's breakfast burritos, the abundance of Starbucks locations, and of course his incredible family and friends). Sam started learning German and got a taste of German culture (and German beer) at the Cologne Karneval and Oktoberfest in Munich.</p>
+
+                    <p>Fast forward to 2024, a lot had changed. The days of daily FaceTime calls, 10-hour plane rides and US border anxiety were finally over. Sam moved to Germany and the two embarked on their biggest adventure so far - moving in together in the exciting city of Berlin.</p>
+
+                    <!-- Proposal Photo -->
+                    <img src="https://i.imgur.com/axOxjHq.jpeg" alt="The Proposal" style="width: 100%; max-width: 800px; margin: 3rem auto; display: block; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                </div>
+            </div>
         </div>
     </div>
 
