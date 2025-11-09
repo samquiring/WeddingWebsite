@@ -319,60 +319,129 @@
     </div>
 
     <!-- THINGS TO DO PAGE -->
-    <div id="things" class="page">
-        <!-- Hero Image -->
-        <div class="things-hero">
-            <!-- TO ADD THINGS TO DO HERO IMAGE: Replace YOUR_THINGS_IMAGE_ID below -->
-            <img src="https://www.turismovieste.it/index/wp-content/uploads/2023/02/polignano-amre.jpg" alt="Polignano a Mare">
-        </div>
-
+    <div id="things" class="page page-blue">
         <div class="section">
             <!-- City Trips Section -->
-            <div class="things-section">
-                <div class="things-icon-circle">
-                    <!-- TO ADD CITY ICON IMAGE: Replace YOUR_CITY_ICON_ID below -->
-                    <img src="https://media.worldnomads.com/explore/italy/getty-davidionut-alberobello.jpg" alt="City Icon">
-                </div>
-                <h2 class="font-serif text-salmon things-title">City Trips</h2>
-                
-                <div class="things-content">
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">City Trips</h2>
+
+                <div class="travel-content">
                     <p class="text-center">Just a short drive from Fasano, you will find numerous cities and little beach towns that are worth a visit. The following are some of our recommendations:</p>
-                    
-                    <div class="city-list">
-                        <p><strong>Monopoli:</strong> Coastal town with a charming little port</p>
-                        <p><strong>Matera:</strong> One of the oldest cities in the world and a UNESCO World Heritage site</p>
-                        <p><strong>Polignano a Mare:</strong> Small and picturesque town by the water with an iconic beach</p>
-                        <p><strong>Ostuni:</strong> A whitewashed old town that is perfect for market strolls or a sunset aperitivo</p>
-                        <p><strong>Bari:</strong> Puglia's capital and a great destination for foodies - make sure to check out the "Strada delle Orecchiette"</p>
-                        <p><strong>Lecce:</strong> A paradise for art and history enthusiasts with baroque architecture</p>
-                        <p><strong>Locorotondo:</strong> Small and quaint town on a hill, famous for it's wineries and beautiful old town</p>
-                        <p><strong>Alberobello:</strong> Home of the very unique and typical Apulian "Trulli" houses and a UNESCO World Heritage site</p>
+
+                    <div class="city-tiles">
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/LspiiaY.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Monopoli</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Coastal town with a charming little port
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/OXmeHju.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Matera</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                One of the oldest cities in the world and a UNESCO World Heritage site
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/d1Md4s0.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Polignano a Mare</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Small and picturesque town by the water with an iconic beach
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/qsR4na4.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Ostuni</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                A whitewashed old town that is perfect for market strolls or a sunset aperitivo
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/EMhczdL.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Bari</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Puglia's capital and a great destination for foodies - make sure to check out the "Strada delle Orecchiette"
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/iaLm0wi.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Lecce</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                A paradise for art and history enthusiasts with baroque architecture
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/4vd5bFU.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Locorotondo</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Small and quaint town on a hill, famous for it's wineries and beautiful old town
+                            </div>
+                        </div>
+
+                        <div class="city-tile" onclick="toggleCityTile(this)" style="background-image: url('https://i.imgur.com/C1pciNJ.jpeg');">
+                            <div class="city-tile-overlay"></div>
+                            <div class="city-tile-header">
+                                <span class="city-tile-name">Alberobello</span>
+                                <span class="city-tile-icon">+</span>
+                            </div>
+                            <div class="city-tile-description">
+                                Home of the very unique and typical Apulian "Trulli" houses and a UNESCO World Heritage site
+                            </div>
+                        </div>
                     </div>
-                    
+
                     <p class="text-center" style="margin-top: 2rem;">If you're willing to drive a little further, the south of Puglia has stunning swimming spots and cliffsides to offer!</p>
                 </div>
             </div>
 
             <!-- Action & Water Activities Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Action & Water Activities</h2>
-                <div class="things-content">
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Action & Water Activities</h2>
+                <div class="travel-content">
                     <p class="text-center">Content coming soon...</p>
                 </div>
             </div>
 
             <!-- Beaches & Beach Clubs Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Beaches & Beach Clubs</h2>
-                <div class="things-content">
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Beaches & Beach Clubs</h2>
+                <div class="travel-content">
                     <p class="text-center">Content coming soon...</p>
                 </div>
             </div>
 
             <!-- Culinary Experiences Section -->
-            <div class="things-section">
-                <h2 class="font-serif text-salmon things-title">Culinary Experiences</h2>
-                <div class="things-content">
+            <div class="travel-section">
+                <h2 class="font-serif text-salmon travel-title">Culinary Experiences</h2>
+                <div class="travel-content">
                     <p class="text-center">Content coming soon...</p>
                 </div>
             </div>

@@ -256,6 +256,11 @@ function showCalendarOptions(event) {
     });
 }
 
+// City Tile Toggle
+function toggleCityTile(tile) {
+    tile.classList.toggle('expanded');
+}
+
 // Dress Code Modal
 function openDressCodeModal(eventType) {
     const images = {

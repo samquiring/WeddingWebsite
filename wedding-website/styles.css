@@ -728,18 +728,122 @@ footer .title {
     line-height: 1.8;
 }
 
-.city-list {
-    text-align: left;
+.city-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     margin: 2rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.city-list p {
-    margin-bottom: 1rem;
-    padding-left: 1rem;
+.city-tile {
+    background: #E47B6A;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
-.city-list strong {
-    color: #333;
+.city-tile:not(.expanded) {
+    overflow: hidden;
+}
+
+.city-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(228, 123, 106, 0.3);
+}
+
+.city-tile-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.city-tile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    flex-shrink: 0;
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.city-tile-name {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.city-tile-icon {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.city-tile.expanded .city-tile-icon {
+    transform: rotate(45deg);
+}
+
+.city-tile-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    color: white;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    z-index: 3;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 1.25rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.city-tile.expanded .city-tile-description {
+    max-height: 150px;
+    padding: 1rem 1.25rem;
+    overflow-y: auto;
+}
+
+.city-tile.expanded .city-tile-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .city-tiles {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .city-tile-name {
+        font-size: 1.25rem;
+    }
 }
 
 /* Dress Code Page */
