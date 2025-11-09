@@ -627,7 +627,6 @@ footer .title {
     font-family: 'Homemade Apple', cursive;
     font-size: 1.5rem;
     color: #E47B6A;
-    margin-bottom: 0.5rem;
 }
 
 /* Page visibility */
@@ -645,36 +644,35 @@ footer .title {
 }
 
 /* FAQs Page */
-.faq-intro {
-    text-align: center;
-    color: #4b5563;
-    margin-bottom: 5rem;
-    font-size: 1.125rem;
-    line-height: 1.8;
-    padding: 0 1rem;
+.faq-item {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.faq-item {
-    margin-bottom: 5rem;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 2rem;
+.faq-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .faq-question {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-align: left;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
     line-height: 1.3;
 }
 
 .faq-answer {
-    color: #333;
-    line-height: 2;
-    margin-bottom: 1.5rem;
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 1rem;
     text-align: left;
-    font-size: 1.05rem;
+    font-size: 1rem;
+}
+
+.faq-answer:last-child {
+    margin-bottom: 0;
 }
 
 /* Things To Do Page */
