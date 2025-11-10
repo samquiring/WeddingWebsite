@@ -307,4 +307,268 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('currentTemp')) {
         loadWeather();
     }
+
+    // Load guest list for RSVP
+    loadGuestList();
+
+    // Initialize Firebase
+    initializeFirebase();
 });
+
+// RSVP System
+let guestList = [];
+let selectedGuest = null;
+let selectedPartner = null;
+let rsvpForCouple = false;
+
+// Load guest list
+async function loadGuestList() {
+    try {
+        const response = await fetch('guest-list.json');
+        guestList = await response.json();
+        console.log('Guest list loaded:', guestList.length, 'guests');
+    } catch (error) {
+        console.error('Error loading guest list:', error);
+    }
+}
+
+// Name search functionality
+const guestNameInput = document.getElementById('guestName');
+const nameDropdown = document.getElementById('nameDropdown');
+
+if (guestNameInput) {
+    guestNameInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.trim().toLowerCase();
+
+        if (searchTerm.length < 2) {
+            nameDropdown.classList.remove('show');
+            return;
+        }
+
+        // Search for matching guests
+        const matches = guestList.filter(guest => {
+            return guest.firstName.toLowerCase().includes(searchTerm) ||
+                   guest.lastName.toLowerCase().includes(searchTerm) ||
+                   guest.fullName.toLowerCase().includes(searchTerm);
+        }).slice(0, 10); // Limit to 10 results
+
+        if (matches.length > 0) {
+            displayNameMatches(matches);
+        } else {
+            nameDropdown.classList.remove('show');
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!nameDropdown.contains(e.target) && e.target !== guestNameInput) {
+            nameDropdown.classList.remove('show');
+        }
+    });
+}
+
+function displayNameMatches(matches) {
+    nameDropdown.innerHTML = '';
+
+    matches.forEach(guest => {
+        const option = document.createElement('div');
+        option.className = 'name-option';
+        option.innerHTML = `
+            <div class="name-option-name">${guest.fullName}</div>
+            ${guest.email ? `<div class="name-option-email">${guest.email}</div>` : ''}
+        `;
+
+        option.addEventListener('click', () => selectGuest(guest));
+        nameDropdown.appendChild(option);
+    });
+
+    nameDropdown.classList.add('show');
+}
+
+function selectGuest(guest) {
+    selectedGuest = guest;
+    guestNameInput.value = guest.fullName;
+    nameDropdown.classList.remove('show');
+
+    // Check if guest has a partner
+    if (guest.groupId) {
+        const partner = guestList.find(g => g.groupId === guest.groupId && g.id !== guest.id);
+        if (partner) {
+            selectedPartner = partner;
+            showPartnerPrompt(partner);
+            return;
+        }
+    }
+
+    // No partner, show continue button
+    selectedPartner = null;
+    document.getElementById('partnerPrompt').style.display = 'none';
+    document.getElementById('continueBtn').style.display = 'block';
+}
+
+function showPartnerPrompt(partner) {
+    document.getElementById('partnerName').textContent = partner.fullName;
+    document.getElementById('partnerPrompt').style.display = 'block';
+    document.getElementById('continueBtn').style.display = 'none';
+}
+
+function rsvpForBoth() {
+    rsvpForCouple = true;
+    document.getElementById('continueBtn').style.display = 'block';
+}
+
+function rsvpForOne() {
+    rsvpForCouple = false;
+    selectedPartner = null;
+    document.getElementById('continueBtn').style.display = 'block';
+}
+
+function continueToRsvp() {
+    // Hide step 1, show step 2
+    document.getElementById('rsvpStep1').classList.remove('active');
+    document.getElementById('rsvpStep2').classList.add('active');
+
+    // Set up the form
+    document.getElementById('guest1Name').textContent = selectedGuest.fullName;
+
+    if (rsvpForCouple && selectedPartner) {
+        document.getElementById('guest2Section').style.display = 'block';
+        document.getElementById('guest2Name').textContent = selectedPartner.fullName;
+    } else {
+        document.getElementById('guest2Section').style.display = 'none';
+    }
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+function goBackToStep1() {
+    document.getElementById('rsvpStep2').classList.remove('active');
+    document.getElementById('rsvpStep1').classList.add('active');
+
+    // Reset form
+    document.getElementById('rsvpForm').reset();
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+async function submitRsvp(event) {
+    event.preventDefault();
+
+    // Collect form data
+    const rsvpData = {
+        timestamp: new Date().toISOString(),
+        guest1: {
+            id: selectedGuest.id,
+            name: selectedGuest.fullName,
+            email: selectedGuest.email,
+            events: {
+                welcomeParty: document.getElementById('guest1_welcomeParty').checked,
+                wedding: document.getElementById('guest1_wedding').checked,
+                beach: document.getElementById('guest1_beach').checked
+            },
+            dietary: document.getElementById('guest1_dietary').value,
+            notes: document.getElementById('guest1_notes').value
+        }
+    };
+
+    if (rsvpForCouple && selectedPartner) {
+        rsvpData.guest2 = {
+            id: selectedPartner.id,
+            name: selectedPartner.fullName,
+            email: selectedPartner.email,
+            events: {
+                welcomeParty: document.getElementById('guest2_welcomeParty').checked,
+                wedding: document.getElementById('guest2_wedding').checked,
+                beach: document.getElementById('guest2_beach').checked
+            },
+            dietary: document.getElementById('guest2_dietary').value,
+            notes: document.getElementById('guest2_notes').value
+        };
+    }
+
+    // Save to Firebase
+    try {
+        await saveRsvpToFirebase(rsvpData);
+
+        // Show success message
+        document.getElementById('rsvpStep2').classList.remove('active');
+        document.getElementById('rsvpStep3').classList.add('active');
+        window.scrollTo(0, 0);
+    } catch (error) {
+        console.error('Error submitting RSVP:', error);
+        alert('There was an error submitting your RSVP. Please try again or contact us directly.');
+    }
+}
+
+function resetRsvp() {
+    // Reset all variables
+    selectedGuest = null;
+    selectedPartner = null;
+    rsvpForCouple = false;
+
+    // Reset form
+    document.getElementById('guestName').value = '';
+    document.getElementById('rsvpForm').reset();
+    document.getElementById('partnerPrompt').style.display = 'none';
+    document.getElementById('continueBtn').style.display = 'none';
+
+    // Go back to step 1
+    document.getElementById('rsvpStep3').classList.remove('active');
+    document.getElementById('rsvpStep1').classList.add('active');
+
+    window.scrollTo(0, 0);
+}
+
+// Firebase Integration
+const firebaseConfig = {
+    apiKey: "AIzaSyCvErGfvB9uVDDbbXM8ADAFJcibW4vLSvM",
+    authDomain: "weddingrsvp-3d7a2.firebaseapp.com",
+    databaseURL: "https://weddingrsvp-3d7a2-default-rtdb.firebaseio.com",
+    projectId: "weddingrsvp-3d7a2",
+    storageBucket: "weddingrsvp-3d7a2.firebasestorage.app",
+    messagingSenderId: "720591735375",
+    appId: "1:720591735375:web:b9356360b0d7436497b83a",
+    measurementId: "G-ZWYDH5G56B"
+};
+
+let firebaseInitialized = false;
+
+async function initializeFirebase() {
+    if (firebaseInitialized) return;
+
+    try {
+        // Check if Firebase is available
+        if (typeof firebase !== 'undefined') {
+            firebase.initializeApp(firebaseConfig);
+            firebaseInitialized = true;
+            console.log('Firebase initialized');
+        }
+    } catch (error) {
+        console.error('Error initializing Firebase:', error);
+    }
+}
+
+async function saveRsvpToFirebase(rsvpData) {
+    // For now, just log the data (Firebase will be set up separately)
+    console.log('RSVP Data to save:', rsvpData);
+
+    // If Firebase is configured and initialized
+    if (firebaseInitialized && typeof firebase !== 'undefined') {
+        try {
+            const db = firebase.database();
+            const rsvpRef = db.ref('rsvps');
+            await rsvpRef.push(rsvpData);
+            console.log('RSVP saved to Firebase');
+        } catch (error) {
+            console.error('Error saving to Firebase:', error);
+            throw error;
+        }
+    } else {
+        // For testing without Firebase, just simulate success
+        console.log('Firebase not configured. RSVP would be saved here.');
+        // Simulate async delay
+        await new Promise(resolve => setTimeout(resolve, 500));
+    }
+}

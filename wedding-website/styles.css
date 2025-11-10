@@ -1178,3 +1178,258 @@ footer .title {
         display: none;
     }
 }
+
+/* RSVP Styles */
+.rsvp-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.rsvp-step {
+    display: none;
+}
+
+.rsvp-step.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.rsvp-form-card {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.btn-back {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: none;
+    border: none;
+    color: #E47B6A;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: opacity 0.3s;
+}
+
+.btn-back:hover {
+    opacity: 0.7;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #E47B6A;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-help {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 0.5rem;
+}
+
+/* Name Dropdown */
+.name-dropdown {
+    position: absolute;
+    width: calc(100% - 6rem);
+    max-height: 250px;
+    overflow-y: auto;
+    background: white;
+    border: 2px solid #e5e5e5;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 100;
+    display: none;
+}
+
+.name-dropdown.show {
+    display: block;
+}
+
+.name-option {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.name-option:hover {
+    background-color: #fff5f3;
+}
+
+.name-option:last-child {
+    border-bottom: none;
+}
+
+.name-option-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.name-option-email {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 0.25rem;
+}
+
+/* Partner Prompt */
+.partner-prompt {
+    background: #fff5f3;
+    border: 2px solid #E47B6A;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.partner-question {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.partner-question strong {
+    color: #E47B6A;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.75rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.checkbox-label:hover {
+    border-color: #E47B6A;
+    background-color: #fff5f3;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.75rem;
+    cursor: pointer;
+    accent-color: #E47B6A;
+}
+
+.checkbox-label span {
+    flex: 1;
+}
+
+.event-date-small {
+    color: #999;
+    font-size: 0.875rem;
+}
+
+/* Guest Section */
+.guest-section {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.guest-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.guest-section-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.5rem;
+    color: #E47B6A;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Success Icon */
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: #E47B6A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    margin: 0 auto 2rem;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+/* Button Styles */
+.btn-outline {
+    background: white;
+    color: #E47B6A;
+    border: 2px solid #E47B6A;
+}
+
+.btn-outline:hover {
+    background: #E47B6A;
+    color: white;
+}
+
+/* Responsive RSVP */
+@media (max-width: 768px) {
+    .rsvp-form-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .btn-back {
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .name-dropdown {
+        width: calc(100% - 3rem);
+    }
+}
