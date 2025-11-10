@@ -467,10 +467,127 @@
         </div>
     </div>
 
-    <div id="rsvp" class="page">
-        <div class="placeholder-page">
-            <h2>RSVP</h2>
-            <p>Inhalt folgt in Kürze...</p>
+    <!-- RSVP PAGE -->
+    <div id="rsvp" class="page page-blue">
+        <div class="section">
+            <div class="rsvp-container">
+                <h2 class="font-serif text-salmon text-center" style="font-size: 3rem; margin-bottom: 1rem;">RSVP</h2>
+                <p class="text-center" style="margin-bottom: 3rem; color: #666;">Bitte antwortet bis zum 1. Mai 2026</p>
+
+                <!-- Step 1: Name Lookup -->
+                <div id="rsvpStep1" class="rsvp-step active">
+                    <div class="rsvp-form-card">
+                        <h3 class="font-serif text-salmon" style="font-size: 1.75rem; margin-bottom: 1.5rem; text-align: center;">Findet eure Einladung</h3>
+                        <p style="text-align: center; margin-bottom: 2rem; color: #666;">Bitte gebt euren Namen ein, um zu beginnen</p>
+
+                        <div class="form-group">
+                            <label for="guestName">Euer Name</label>
+                            <input type="text" id="guestName" placeholder="Fangt an, euren Namen einzugeben..." autocomplete="off">
+                            <div id="nameDropdown" class="name-dropdown"></div>
+                            <p class="form-help">Gebt euren Vor- oder Nachnamen ein</p>
+                        </div>
+
+                        <div id="partnerPrompt" class="partner-prompt" style="display: none;">
+                            <p class="partner-question">Wir sehen, ihr seid mit <strong id="partnerName"></strong> eingeladen. Möchtet ihr für beide zusagen?</p>
+                            <div class="btn-group">
+                                <button class="btn" onclick="rsvpForBoth()">Ja, für beide zusagen</button>
+                                <button class="btn btn-outline" onclick="rsvpForOne()">Nein, nur für mich</button>
+                            </div>
+                        </div>
+
+                        <button id="continueBtn" class="btn" style="width: 100%; margin-top: 2rem; display: none;" onclick="continueToRsvp()">Weiter</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: RSVP Form -->
+                <div id="rsvpStep2" class="rsvp-step">
+                    <div class="rsvp-form-card">
+                        <button class="btn-back" onclick="goBackToStep1()">← Zurück</button>
+
+                        <h3 class="font-serif text-salmon" style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Eure Zusage</h3>
+
+                        <form id="rsvpForm" onsubmit="submitRsvp(event)">
+                            <!-- Guest 1 Section -->
+                            <div id="guest1Section" class="guest-section">
+                                <h4 class="guest-section-title" id="guest1Name"></h4>
+
+                                <div class="form-group">
+                                    <label>An welchen Events kannst du teilnehmen?</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="guest1_welcomeParty" id="guest1_welcomeParty">
+                                            <span>Welcome Party <span class="event-date-small">(24. Aug.)</span></span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="guest1_wedding" id="guest1_wedding">
+                                            <span>Hochzeit <span class="event-date-small">(25. Aug.)</span></span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="guest1_beach" id="guest1_beach">
+                                            <span>Beach Day <span class="event-date-small">(26. Aug.)</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="guest1_dietary">Ernährungseinschränkungen</label>
+                                    <input type="text" id="guest1_dietary" placeholder="z.B. Vegetarisch, Glutenfrei, Keine">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="guest1_notes">Besondere Anmerkungen oder Kommentare</label>
+                                    <textarea id="guest1_notes" rows="3" placeholder="Besondere Wünsche oder Nachrichten für uns..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Guest 2 Section (for couples) -->
+                            <div id="guest2Section" class="guest-section" style="display: none;">
+                                <h4 class="guest-section-title" id="guest2Name"></h4>
+
+                                <div class="form-group">
+                                    <label>An welchen Events kannst du teilnehmen?</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="guest2_welcomeParty" id="guest2_welcomeParty">
+                                            <span>Welcome Party <span class="event-date-small">(24. Aug.)</span></span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="guest2_wedding" id="guest2_wedding">
+                                            <span>Hochzeit <span class="event-date-small">(25. Aug.)</span></span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="guest2_beach" id="guest2_beach">
+                                            <span>Beach Day <span class="event-date-small">(26. Aug.)</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="guest2_dietary">Ernährungseinschränkungen</label>
+                                    <input type="text" id="guest2_dietary" placeholder="z.B. Vegetarisch, Glutenfrei, Keine">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="guest2_notes">Besondere Anmerkungen oder Kommentare</label>
+                                    <textarea id="guest2_notes" rows="3" placeholder="Besondere Wünsche oder Nachrichten für uns..."></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%; margin-top: 2rem;">Zusage absenden</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirmation -->
+                <div id="rsvpStep3" class="rsvp-step">
+                    <div class="rsvp-form-card text-center">
+                        <div class="success-icon">✓</div>
+                        <h3 class="font-serif text-salmon" style="font-size: 2rem; margin-bottom: 1rem;">Vielen Dank!</h3>
+                        <p style="font-size: 1.125rem; margin-bottom: 2rem;">Eure Zusage wurde erhalten. Wir freuen uns darauf, mit euch zu feiern!</p>
+                        <button class="btn" onclick="resetRsvp()">Weitere Zusage absenden</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -479,6 +596,10 @@
         <p style="margin-bottom: 0.25rem;">designed and made by</p>
         <p class="title">Julie & Samuel</p>
     </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
     <script src="../script.js"></script>
 </body>

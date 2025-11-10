@@ -320,11 +320,19 @@ let guestList = [];
 let selectedGuest = null;
 let selectedPartner = null;
 let rsvpForCouple = false;
+let existingRsvp = null; // Store existing RSVP data for pre-filling
 
 // Load guest list
 async function loadGuestList() {
     try {
-        const response = await fetch('guest-list.json');
+        // Try loading from current directory first
+        let response = await fetch('guest-list.json');
+
+        // If in a subdirectory (like /de/), try parent directory
+        if (!response.ok) {
+            response = await fetch('../guest-list.json');
+        }
+
         guestList = await response.json();
         console.log('Guest list loaded:', guestList.length, 'guests');
     } catch (error) {
@@ -385,10 +393,80 @@ function displayNameMatches(matches) {
     nameDropdown.classList.add('show');
 }
 
-function selectGuest(guest) {
+// Check if guest has already RSVP'd
+async function checkExistingRsvp(guest) {
+    if (typeof firebase === 'undefined' || !firebase.apps.length) {
+        return; // Firebase not initialized yet
+    }
+
+    try {
+        const db = firebase.database();
+        const rsvpsRef = db.ref('rsvps');
+        const snapshot = await rsvpsRef.once('value');
+        const allRsvpsData = snapshot.val();
+
+        if (!allRsvpsData) {
+            existingRsvp = null;
+            return;
+        }
+
+        // Convert to array with IDs
+        const allRsvps = Object.keys(allRsvpsData).map(key => ({
+            id: key,
+            ...allRsvpsData[key]
+        }));
+
+        // Find ALL RSVPs for this guest
+        const guestRsvps = allRsvps.filter(rsvp => {
+            return (rsvp.guest1 && rsvp.guest1.id === guest.id) ||
+                   (rsvp.guest2 && rsvp.guest2.id === guest.id);
+        });
+
+        if (guestRsvps.length === 0) {
+            existingRsvp = null;
+            return;
+        }
+
+        // Build set of superseded RSVP IDs
+        const supersededIds = new Set();
+        allRsvps.forEach(rsvp => {
+            if (rsvp.previousRsvpId) {
+                supersededIds.add(rsvp.previousRsvpId);
+            }
+        });
+
+        // Filter out superseded RSVPs to get the latest one
+        const latestRsvps = guestRsvps.filter(rsvp => !supersededIds.has(rsvp.id));
+
+        if (latestRsvps.length > 0) {
+            // Should be exactly 1, but take the most recent by timestamp if multiple
+            const mostRecent = latestRsvps.sort((a, b) => {
+                const timeA = new Date(a.timestamp || 0).getTime();
+                const timeB = new Date(b.timestamp || 0).getTime();
+                return timeB - timeA;
+            })[0];
+
+            existingRsvp = {
+                id: mostRecent.id,
+                data: mostRecent
+            };
+            console.log('Found latest RSVP:', existingRsvp);
+        } else {
+            existingRsvp = null;
+        }
+    } catch (error) {
+        console.error('Error checking existing RSVP:', error);
+        existingRsvp = null;
+    }
+}
+
+async function selectGuest(guest) {
     selectedGuest = guest;
     guestNameInput.value = guest.fullName;
     nameDropdown.classList.remove('show');
+
+    // Check for existing RSVP
+    await checkExistingRsvp(guest);
 
     // Check if guest has a partner
     if (guest.groupId) {
@@ -431,6 +509,27 @@ function continueToRsvp() {
     // Set up the form
     document.getElementById('guest1Name').textContent = selectedGuest.fullName;
 
+    // Check if there's an existing RSVP message element, if not create it
+    let existingMessage = document.getElementById('existingRsvpMessage');
+    if (!existingMessage) {
+        existingMessage = document.createElement('div');
+        existingMessage.id = 'existingRsvpMessage';
+        existingMessage.style.cssText = 'background: #fff5f3; border: 2px solid #E47B6A; border-radius: 8px; padding: 1rem; margin-bottom: 2rem; text-align: center; color: #333;';
+        const formTitle = document.querySelector('#rsvpStep2 h3');
+        formTitle.parentNode.insertBefore(existingMessage, formTitle.nextSibling);
+    }
+
+    // Show/hide existing RSVP message
+    if (existingRsvp) {
+        existingMessage.innerHTML = '<strong>You\'ve already RSVP\'d!</strong><br>Feel free to update your response below.';
+        existingMessage.style.display = 'block';
+
+        // Pre-fill the form with existing data
+        preFillForm();
+    } else {
+        existingMessage.style.display = 'none';
+    }
+
     if (rsvpForCouple && selectedPartner) {
         document.getElementById('guest2Section').style.display = 'block';
         document.getElementById('guest2Name').textContent = selectedPartner.fullName;
@@ -440,6 +539,55 @@ function continueToRsvp() {
 
     // Scroll to top
     window.scrollTo(0, 0);
+}
+
+// Pre-fill form with existing RSVP data
+function preFillForm() {
+    if (!existingRsvp || !existingRsvp.data) return;
+
+    const rsvpData = existingRsvp.data;
+
+    // Find which guest is the current selected guest
+    let guestData = null;
+    let partnerData = null;
+
+    if (rsvpData.guest1 && rsvpData.guest1.id === selectedGuest.id) {
+        guestData = rsvpData.guest1;
+        partnerData = rsvpData.guest2;
+    } else if (rsvpData.guest2 && rsvpData.guest2.id === selectedGuest.id) {
+        guestData = rsvpData.guest2;
+        partnerData = rsvpData.guest1;
+    }
+
+    if (guestData) {
+        // Pre-fill guest 1 (current selected guest)
+        if (guestData.events) {
+            const rehearsalCheckbox = document.getElementById('guest1_rehearsal');
+            if (rehearsalCheckbox) rehearsalCheckbox.checked = guestData.events.rehearsalDinner || false;
+
+            document.getElementById('guest1_welcomeParty').checked = guestData.events.welcomeParty || false;
+            document.getElementById('guest1_wedding').checked = guestData.events.wedding || false;
+            document.getElementById('guest1_beach').checked = guestData.events.beach || false;
+        }
+
+        document.getElementById('guest1_dietary').value = guestData.dietary || '';
+        document.getElementById('guest1_notes').value = guestData.notes || '';
+    }
+
+    // If RSVP'ing for couple and partner data exists
+    if (rsvpForCouple && partnerData && selectedPartner && partnerData.id === selectedPartner.id) {
+        if (partnerData.events) {
+            const rehearsal2Checkbox = document.getElementById('guest2_rehearsal');
+            if (rehearsal2Checkbox) rehearsal2Checkbox.checked = partnerData.events.rehearsalDinner || false;
+
+            document.getElementById('guest2_welcomeParty').checked = partnerData.events.welcomeParty || false;
+            document.getElementById('guest2_wedding').checked = partnerData.events.wedding || false;
+            document.getElementById('guest2_beach').checked = partnerData.events.beach || false;
+        }
+
+        document.getElementById('guest2_dietary').value = partnerData.dietary || '';
+        document.getElementById('guest2_notes').value = partnerData.notes || '';
+    }
 }
 
 function goBackToStep1() {
@@ -456,33 +604,51 @@ function goBackToStep1() {
 async function submitRsvp(event) {
     event.preventDefault();
 
-    // Collect form data
+    // Collect form data for guest 1
+    const guest1Events = {
+        welcomeParty: document.getElementById('guest1_welcomeParty').checked,
+        wedding: document.getElementById('guest1_wedding').checked,
+        beach: document.getElementById('guest1_beach').checked
+    };
+
+    // Add rehearsal dinner if checkbox exists (family page only)
+    const rehearsalCheckbox = document.getElementById('guest1_rehearsal');
+    if (rehearsalCheckbox) {
+        guest1Events.rehearsalDinner = rehearsalCheckbox.checked;
+    }
+
     const rsvpData = {
         timestamp: new Date().toISOString(),
+        isUpdate: existingRsvp ? true : false,
+        previousRsvpId: existingRsvp ? existingRsvp.id : null,
         guest1: {
             id: selectedGuest.id,
             name: selectedGuest.fullName,
             email: selectedGuest.email,
-            events: {
-                welcomeParty: document.getElementById('guest1_welcomeParty').checked,
-                wedding: document.getElementById('guest1_wedding').checked,
-                beach: document.getElementById('guest1_beach').checked
-            },
+            events: guest1Events,
             dietary: document.getElementById('guest1_dietary').value,
             notes: document.getElementById('guest1_notes').value
         }
     };
 
     if (rsvpForCouple && selectedPartner) {
+        const guest2Events = {
+            welcomeParty: document.getElementById('guest2_welcomeParty').checked,
+            wedding: document.getElementById('guest2_wedding').checked,
+            beach: document.getElementById('guest2_beach').checked
+        };
+
+        // Add rehearsal dinner for guest 2 if checkbox exists
+        const rehearsal2Checkbox = document.getElementById('guest2_rehearsal');
+        if (rehearsal2Checkbox) {
+            guest2Events.rehearsalDinner = rehearsal2Checkbox.checked;
+        }
+
         rsvpData.guest2 = {
             id: selectedPartner.id,
             name: selectedPartner.fullName,
             email: selectedPartner.email,
-            events: {
-                welcomeParty: document.getElementById('guest2_welcomeParty').checked,
-                wedding: document.getElementById('guest2_wedding').checked,
-                beach: document.getElementById('guest2_beach').checked
-            },
+            events: guest2Events,
             dietary: document.getElementById('guest2_dietary').value,
             notes: document.getElementById('guest2_notes').value
         };
@@ -507,12 +673,19 @@ function resetRsvp() {
     selectedGuest = null;
     selectedPartner = null;
     rsvpForCouple = false;
+    existingRsvp = null; // Clear existing RSVP data
 
     // Reset form
     document.getElementById('guestName').value = '';
     document.getElementById('rsvpForm').reset();
     document.getElementById('partnerPrompt').style.display = 'none';
     document.getElementById('continueBtn').style.display = 'none';
+
+    // Hide existing RSVP message if it exists
+    const existingMessage = document.getElementById('existingRsvpMessage');
+    if (existingMessage) {
+        existingMessage.style.display = 'none';
+    }
 
     // Go back to step 1
     document.getElementById('rsvpStep3').classList.remove('active');

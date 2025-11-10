@@ -95,32 +95,70 @@ function loadRsvps() {
     });
 }
 
+// Get the latest RSVP data for each guest
+function getLatestGuestData() {
+    // Map to store the latest RSVP info for each guest ID
+    const latestGuestMap = new Map();
+
+    // Build a map of all RSVPs with timestamps
+    const rsvpsWithTime = allRsvps.map(rsvp => ({
+        ...rsvp,
+        time: new Date(rsvp.timestamp || 0).getTime()
+    }));
+
+    // Sort by timestamp (oldest first, so newer ones overwrite)
+    rsvpsWithTime.sort((a, b) => a.time - b.time);
+
+    // Process each RSVP and extract guest data
+    rsvpsWithTime.forEach(rsvp => {
+        if (rsvp.guest1) {
+            // Store or update guest1 data with RSVP info
+            latestGuestMap.set(rsvp.guest1.id, {
+                guest: rsvp.guest1,
+                isUpdate: rsvp.isUpdate || false,
+                rsvpId: rsvp.id,
+                timestamp: rsvp.timestamp
+            });
+        }
+
+        if (rsvp.guest2) {
+            // Store or update guest2 data with RSVP info
+            latestGuestMap.set(rsvp.guest2.id, {
+                guest: rsvp.guest2,
+                isUpdate: rsvp.isUpdate || false,
+                rsvpId: rsvp.id,
+                timestamp: rsvp.timestamp
+            });
+        }
+    });
+
+    // Convert map to array of guest data
+    return Array.from(latestGuestMap.values());
+}
+
 // Display statistics
 function displayStats() {
     let totalGuests = 0;
+    let rehearsalCount = 0;
     let welcomeCount = 0;
     let weddingCount = 0;
     let beachCount = 0;
 
-    allRsvps.forEach(rsvp => {
-        // Guest 1
-        if (rsvp.guest1) {
-            totalGuests++;
-            if (rsvp.guest1.events.welcomeParty) welcomeCount++;
-            if (rsvp.guest1.events.wedding) weddingCount++;
-            if (rsvp.guest1.events.beach) beachCount++;
-        }
+    // Get latest data for each guest
+    const latestGuestData = getLatestGuestData();
 
-        // Guest 2 (if couple)
-        if (rsvp.guest2) {
-            totalGuests++;
-            if (rsvp.guest2.events.welcomeParty) welcomeCount++;
-            if (rsvp.guest2.events.wedding) weddingCount++;
-            if (rsvp.guest2.events.beach) beachCount++;
-        }
+    latestGuestData.forEach(guestData => {
+        const guest = guestData.guest;
+        totalGuests++;
+
+        if (guest.events.rehearsalDinner) rehearsalCount++;
+        if (guest.events.welcomeParty) welcomeCount++;
+        if (guest.events.wedding) weddingCount++;
+        if (guest.events.beach) beachCount++;
     });
 
     document.getElementById('totalRsvps').textContent = totalGuests;
+    document.getElementById('rehearsalCount').textContent = rehearsalCount;
     document.getElementById('welcomeCount').textContent = welcomeCount;
     document.getElementById('weddingCount').textContent = weddingCount;
     document.getElementById('beachCount').textContent = beachCount;
@@ -130,7 +168,10 @@ function displayStats() {
 function displayRsvpTable() {
     const container = document.getElementById('rsvpTableContainer');
 
-    if (allRsvps.length === 0) {
+    // Get latest data for each guest
+    const latestGuestData = getLatestGuestData();
+
+    if (latestGuestData.length === 0) {
         container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📭</div><p>No RSVPs yet</p></div>';
         return;
     }
@@ -141,6 +182,7 @@ function displayRsvpTable() {
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Rehearsal</th>
                     <th>Welcome Party</th>
                     <th>Wedding</th>
                     <th>Beach Day</th>
@@ -151,16 +193,8 @@ function displayRsvpTable() {
             <tbody>
     `;
 
-    allRsvps.forEach(rsvp => {
-        // Guest 1
-        if (rsvp.guest1) {
-            html += createTableRow(rsvp.guest1);
-        }
-
-        // Guest 2
-        if (rsvp.guest2) {
-            html += createTableRow(rsvp.guest2);
-        }
+    latestGuestData.forEach(guestData => {
+        html += createTableRow(guestData.guest, guestData.isUpdate);
     });
 
     html += '</tbody></table>';
@@ -168,11 +202,14 @@ function displayRsvpTable() {
 }
 
 // Create table row for a guest
-function createTableRow(guest) {
+function createTableRow(guest, isUpdate) {
+    const updateBadge = isUpdate ? ' <span class="badge" style="background: #ffc107; color: #000; font-size: 0.7rem;">Updated</span>' : '';
+
     return `
         <tr>
-            <td><strong>${guest.name}</strong></td>
+            <td><strong>${guest.name}</strong>${updateBadge}</td>
             <td>${guest.email || '-'}</td>
+            <td>${getBadge(guest.events.rehearsalDinner)}</td>
             <td>${getBadge(guest.events.welcomeParty)}</td>
             <td>${getBadge(guest.events.wedding)}</td>
             <td>${getBadge(guest.events.beach)}</td>
@@ -196,18 +233,15 @@ function displayDietaryRestrictions() {
     const list = document.getElementById('dietaryList');
     const dietary = [];
 
-    allRsvps.forEach(rsvp => {
-        if (rsvp.guest1 && rsvp.guest1.dietary) {
-            dietary.push({
-                name: rsvp.guest1.name,
-                dietary: rsvp.guest1.dietary
-            });
-        }
+    // Get latest data for each guest
+    const latestGuestData = getLatestGuestData();
 
-        if (rsvp.guest2 && rsvp.guest2.dietary) {
+    latestGuestData.forEach(guestData => {
+        const guest = guestData.guest;
+        if (guest.dietary) {
             dietary.push({
-                name: rsvp.guest2.name,
-                dietary: rsvp.guest2.dietary
+                name: guest.name,
+                dietary: guest.dietary
             });
         }
     });
@@ -227,20 +261,18 @@ function displayDietaryRestrictions() {
 
 // Export to CSV
 function exportToCSV() {
-    if (allRsvps.length === 0) {
+    // Get latest data for each guest
+    const latestGuestData = getLatestGuestData();
+
+    if (latestGuestData.length === 0) {
         alert('No RSVPs to export');
         return;
     }
 
-    let csv = 'Name,Email,Welcome Party,Wedding,Beach Day,Dietary Restrictions,Notes\n';
+    let csv = 'Name,Email,Rehearsal Dinner,Welcome Party,Wedding,Beach Day,Dietary Restrictions,Notes\n';
 
-    allRsvps.forEach(rsvp => {
-        if (rsvp.guest1) {
-            csv += createCSVRow(rsvp.guest1);
-        }
-        if (rsvp.guest2) {
-            csv += createCSVRow(rsvp.guest2);
-        }
+    latestGuestData.forEach(guestData => {
+        csv += createCSVRow(guestData.guest);
     });
 
     // Create download
@@ -266,7 +298,7 @@ function createCSVRow(guest) {
         return str;
     };
 
-    return `${escapeCSV(guest.name)},${escapeCSV(guest.email)},${guest.events.welcomeParty ? 'Yes' : 'No'},${guest.events.wedding ? 'Yes' : 'No'},${guest.events.beach ? 'Yes' : 'No'},${escapeCSV(guest.dietary)},${escapeCSV(guest.notes)}\n`;
+    return `${escapeCSV(guest.name)},${escapeCSV(guest.email)},${guest.events.rehearsalDinner ? 'Yes' : 'No'},${guest.events.welcomeParty ? 'Yes' : 'No'},${guest.events.wedding ? 'Yes' : 'No'},${guest.events.beach ? 'Yes' : 'No'},${escapeCSV(guest.dietary)},${escapeCSV(guest.notes)}\n`;
 }
 
 // Refresh data
@@ -279,6 +311,7 @@ function refreshData() {
 // Show empty state
 function showEmptyState() {
     document.getElementById('totalRsvps').textContent = '0';
+    document.getElementById('rehearsalCount').textContent = '0';
     document.getElementById('welcomeCount').textContent = '0';
     document.getElementById('weddingCount').textContent = '0';
     document.getElementById('beachCount').textContent = '0';
