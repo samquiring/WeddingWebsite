@@ -1417,6 +1417,10 @@ footer .title {
     margin-top: 2rem;
 }
 
+.partner-prompt .btn-group {
+    align-items: center;
+}
+
 .partner-question {
     text-align: center;
     margin-bottom: 1rem;
@@ -1517,6 +1521,17 @@ footer .title {
 .btn-outline:hover {
     background: #E47B6A;
     color: white;
+}
+
+/* Center all RSVP buttons */
+.rsvp-step .btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rsvp-step .btn-group {
+    align-items: center;
 }
 
 /* Responsive RSVP */
