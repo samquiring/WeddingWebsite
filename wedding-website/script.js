@@ -42,7 +42,17 @@ function showPage(pageId) {
     event.target.classList.add('active');
 
     // Update mobile page title
-    const pageTitles = {
+    const isGerman = document.documentElement.lang === 'de';
+
+    const pageTitles = isGerman ? {
+        'home': 'Startseite',
+        'schedule': 'Zeitplan',
+        'travel': 'Reise',
+        'dress-code': 'Dresscode',
+        'things': 'Unternehmungen',
+        'faqs': 'FAQs',
+        'rsvp': 'RSVP'
+    } : {
         'home': 'Home',
         'schedule': 'Schedule',
         'travel': 'Travel',
@@ -51,9 +61,10 @@ function showPage(pageId) {
         'faqs': 'FAQs',
         'rsvp': 'RSVP'
     };
+
     const mobileTitle = document.getElementById('mobilePageTitle');
     if (mobileTitle) {
-        mobileTitle.textContent = pageTitles[pageId] || 'Home';
+        mobileTitle.textContent = pageTitles[pageId] || (isGerman ? 'Startseite' : 'Home');
     }
 
     // Close mobile menu if open

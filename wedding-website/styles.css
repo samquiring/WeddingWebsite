@@ -9,6 +9,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 /* Typography */
@@ -302,6 +304,8 @@ nav {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .event-card-new {
@@ -349,6 +353,10 @@ nav {
     color: #E47B6A;
     margin-bottom: 0.75rem;
     font-weight: 400;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
 }
 
 .event-datetime {
@@ -632,6 +640,8 @@ footer .title {
 /* Page visibility */
 .page {
     display: none;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 .page.active {
@@ -1116,8 +1126,20 @@ footer .title {
         font-size: 2.5rem;
     }
 
+    .event-name {
+        font-size: 2rem;
+    }
+
     .events-container {
         grid-template-columns: 1fr;
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+
+    .event-card-new {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .nav-container {
@@ -1129,7 +1151,7 @@ footer .title {
         flex-direction: column;
         gap: 0;
     }
-    
+
     .language-switcher {
         margin-left: 0;
         margin-top: 1rem;
@@ -1166,6 +1188,85 @@ footer .title {
 
     .section {
         padding: 3rem 1rem;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .names-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .logo-text {
+        font-size: 2rem;
+    }
+
+    .event-name {
+        font-size: 1.5rem;
+        word-break: break-word;
+    }
+
+    .events-container {
+        padding: 0 0.75rem;
+    }
+
+    .event-card-new {
+        padding: 1.5rem 1rem;
+        max-width: 100%;
+    }
+
+    .event-card-new .btn-group {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .names-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.75rem;
+    }
+
+    .event-name {
+        font-size: 1.25rem;
+        word-break: break-word;
+    }
+
+    .events-container {
+        padding: 0 0.5rem;
+    }
+
+    .event-card-new {
+        padding: 1.25rem 0.75rem;
+        max-width: 100%;
+    }
+
+    .btn {
+        padding: 0.65rem 0.75rem;
+        font-size: 0.8rem;
     }
 }
 
