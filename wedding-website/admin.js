@@ -213,7 +213,7 @@ function createTableRow(guest, isUpdate) {
             <td>${getBadge(guest.events.welcomeParty)}</td>
             <td>${getBadge(guest.events.wedding)}</td>
             <td>${getBadge(guest.events.beach)}</td>
-            <td>${guest.dietary || '-'}</td>
+            <td>${formatDietaryRestrictions(guest.dietary)}</td>
             <td>${guest.notes || '-'}</td>
         </tr>
     `;
@@ -226,6 +226,25 @@ function getBadge(value) {
     } else {
         return '<span class="badge badge-no">No</span>';
     }
+}
+
+// Format dietary restrictions for display
+function formatDietaryRestrictions(dietary) {
+    if (!dietary) return '-';
+
+    // Handle old format (plain string)
+    if (typeof dietary === 'string') {
+        return dietary;
+    }
+
+    // Handle new format (object with checkboxes)
+    const restrictions = [];
+    if (dietary.vegan) restrictions.push('Vegan');
+    if (dietary.vegetarian) restrictions.push('Vegetarian');
+    if (dietary.glutenFree) restrictions.push('Gluten Free');
+    if (dietary.other && dietary.other.trim()) restrictions.push(dietary.other);
+
+    return restrictions.length > 0 ? restrictions.join(', ') : '-';
 }
 
 // Display dietary restrictions
@@ -253,7 +272,7 @@ function displayDietaryRestrictions() {
 
     let html = '';
     dietary.forEach(item => {
-        html += `<li><strong>${item.name}:</strong> ${item.dietary}</li>`;
+        html += `<li><strong>${item.name}:</strong> ${formatDietaryRestrictions(item.dietary)}</li>`;
     });
 
     list.innerHTML = html;
@@ -298,7 +317,7 @@ function createCSVRow(guest) {
         return str;
     };
 
-    return `${escapeCSV(guest.name)},${escapeCSV(guest.email)},${guest.events.rehearsalDinner ? 'Yes' : 'No'},${guest.events.welcomeParty ? 'Yes' : 'No'},${guest.events.wedding ? 'Yes' : 'No'},${guest.events.beach ? 'Yes' : 'No'},${escapeCSV(guest.dietary)},${escapeCSV(guest.notes)}\n`;
+    return `${escapeCSV(guest.name)},${escapeCSV(guest.email)},${guest.events.rehearsalDinner ? 'Yes' : 'No'},${guest.events.welcomeParty ? 'Yes' : 'No'},${guest.events.wedding ? 'Yes' : 'No'},${guest.events.beach ? 'Yes' : 'No'},${escapeCSV(formatDietaryRestrictions(guest.dietary))},${escapeCSV(guest.notes)}\n`;
 }
 
 // Refresh data

@@ -581,7 +581,20 @@ function preFillForm() {
             document.getElementById('guest1_beach').checked = guestData.events.beach || false;
         }
 
-        document.getElementById('guest1_dietary').value = guestData.dietary || '';
+        // Handle dietary restrictions (both old string format and new object format)
+        if (guestData.dietary) {
+            if (typeof guestData.dietary === 'object') {
+                // New format with checkboxes
+                document.getElementById('guest1_vegan').checked = guestData.dietary.vegan || false;
+                document.getElementById('guest1_vegetarian').checked = guestData.dietary.vegetarian || false;
+                document.getElementById('guest1_glutenFree').checked = guestData.dietary.glutenFree || false;
+                document.getElementById('guest1_dietary_other').value = guestData.dietary.other || '';
+            } else {
+                // Old format (plain text) - put it in the "other" field
+                document.getElementById('guest1_dietary_other').value = guestData.dietary;
+            }
+        }
+
         document.getElementById('guest1_notes').value = guestData.notes || '';
     }
 
@@ -596,7 +609,20 @@ function preFillForm() {
             document.getElementById('guest2_beach').checked = partnerData.events.beach || false;
         }
 
-        document.getElementById('guest2_dietary').value = partnerData.dietary || '';
+        // Handle dietary restrictions (both old string format and new object format)
+        if (partnerData.dietary) {
+            if (typeof partnerData.dietary === 'object') {
+                // New format with checkboxes
+                document.getElementById('guest2_vegan').checked = partnerData.dietary.vegan || false;
+                document.getElementById('guest2_vegetarian').checked = partnerData.dietary.vegetarian || false;
+                document.getElementById('guest2_glutenFree').checked = partnerData.dietary.glutenFree || false;
+                document.getElementById('guest2_dietary_other').value = partnerData.dietary.other || '';
+            } else {
+                // Old format (plain text) - put it in the "other" field
+                document.getElementById('guest2_dietary_other').value = partnerData.dietary;
+            }
+        }
+
         document.getElementById('guest2_notes').value = partnerData.notes || '';
     }
 }
@@ -628,6 +654,19 @@ async function submitRsvp(event) {
         guest1Events.rehearsalDinner = rehearsalCheckbox.checked;
     }
 
+    // Collect dietary restrictions for guest 1
+    const guest1DietaryOther = document.getElementById('guest1_dietary_other');
+    const guest1Vegan = document.getElementById('guest1_vegan');
+    const guest1Vegetarian = document.getElementById('guest1_vegetarian');
+    const guest1GlutenFree = document.getElementById('guest1_glutenFree');
+
+    const guest1Dietary = {
+        vegan: guest1Vegan ? guest1Vegan.checked : false,
+        vegetarian: guest1Vegetarian ? guest1Vegetarian.checked : false,
+        glutenFree: guest1GlutenFree ? guest1GlutenFree.checked : false,
+        other: guest1DietaryOther ? guest1DietaryOther.value : ''
+    };
+
     const rsvpData = {
         timestamp: new Date().toISOString(),
         isUpdate: existingRsvp ? true : false,
@@ -637,7 +676,7 @@ async function submitRsvp(event) {
             name: selectedGuest.fullName,
             email: selectedGuest.email,
             events: guest1Events,
-            dietary: document.getElementById('guest1_dietary').value,
+            dietary: guest1Dietary,
             notes: document.getElementById('guest1_notes').value
         }
     };
@@ -655,12 +694,25 @@ async function submitRsvp(event) {
             guest2Events.rehearsalDinner = rehearsal2Checkbox.checked;
         }
 
+        // Collect dietary restrictions for guest 2
+        const guest2DietaryOther = document.getElementById('guest2_dietary_other');
+        const guest2Vegan = document.getElementById('guest2_vegan');
+        const guest2Vegetarian = document.getElementById('guest2_vegetarian');
+        const guest2GlutenFree = document.getElementById('guest2_glutenFree');
+
+        const guest2Dietary = {
+            vegan: guest2Vegan ? guest2Vegan.checked : false,
+            vegetarian: guest2Vegetarian ? guest2Vegetarian.checked : false,
+            glutenFree: guest2GlutenFree ? guest2GlutenFree.checked : false,
+            other: guest2DietaryOther ? guest2DietaryOther.value : ''
+        };
+
         rsvpData.guest2 = {
             id: selectedPartner.id,
             name: selectedPartner.fullName,
             email: selectedPartner.email,
             events: guest2Events,
-            dietary: document.getElementById('guest2_dietary').value,
+            dietary: guest2Dietary,
             notes: document.getElementById('guest2_notes').value
         };
     }
