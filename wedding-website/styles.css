@@ -175,7 +175,7 @@ nav {
 }
 
 .hero h1 {
-    font-size: 5rem;
+    font-size: 2.5rem;
     font-family: 'Crimson Text', serif;
     margin-bottom: 1rem;
 }
@@ -205,7 +205,7 @@ nav {
 }
 
 .names-section h2 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-family: 'Homemade Apple', cursive;
     color: #E47B6A;
     line-height: 1.2;
@@ -896,7 +896,7 @@ footer .title {
 
 .dress-code-tile-title {
     font-family: 'Homemade Apple', cursive;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #E47B6A;
     margin-bottom: 0.5rem;
     font-weight: 400;
@@ -998,7 +998,7 @@ footer .title {
     }
 
     .dress-code-tile-title {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
     .dress-code-modal {
@@ -1119,15 +1119,27 @@ footer .title {
 /* Mobile responsive */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .names-section h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .event-name {
         font-size: 2rem;
+    }
+
+    .hero-image {
+        object-position: 45% center;
+    }
+
+    .travel-section h3 {
+        font-size: 2rem !important;
+    }
+
+    .travel-title {
+        font-size: 2rem !important;
     }
 
     .events-container {
@@ -1196,11 +1208,11 @@ footer .title {
 /* Extra small phones */
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 2.25rem;
+        font-size: 1.5rem;
     }
 
     .names-section h2 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     .logo-text {
@@ -1210,6 +1222,18 @@ footer .title {
     .event-name {
         font-size: 1.5rem;
         word-break: break-word;
+    }
+
+    .dress-code-tile-title {
+        font-size: 1.5rem;
+    }
+
+    .travel-section h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .travel-title {
+        font-size: 1.5rem !important;
     }
 
     .events-container {
@@ -1239,11 +1263,11 @@ footer .title {
 /* Very small phones */
 @media (max-width: 360px) {
     .hero h1 {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
     }
 
     .names-section h2 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .logo-text {
@@ -1253,6 +1277,18 @@ footer .title {
     .event-name {
         font-size: 1.25rem;
         word-break: break-word;
+    }
+
+    .dress-code-tile-title {
+        font-size: 1.25rem;
+    }
+
+    .travel-section h3 {
+        font-size: 1.25rem !important;
+    }
+
+    .travel-title {
+        font-size: 1.25rem !important;
     }
 
     .events-container {
