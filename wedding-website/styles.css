@@ -918,15 +918,27 @@ footer .title {
 }
 
 .dress-code-tile-description p {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .dress-code-tile-description p:first-child {
     text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .dress-code-tile-description p:last-child {
     margin-bottom: 0;
+}
+
+.dress-code-tile-description strong {
+    display: block;
+    color: #E47B6A;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
 }
 
 .dress-code-tile-cta {
