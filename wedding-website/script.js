@@ -47,7 +47,7 @@ function showPage(pageId) {
     const pageTitles = isGerman ? {
         'home': 'Startseite',
         'schedule': 'Zeitplan',
-        'travel': 'Reise',
+        'travel': 'Anreise',
         'dress-code': 'Dresscode',
         'things': 'Unternehmungen',
         'faqs': 'FAQs',
