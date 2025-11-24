@@ -177,27 +177,29 @@ function displayRsvpTable() {
     }
 
     let html = `
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Rehearsal</th>
-                    <th>Welcome Party</th>
-                    <th>Wedding</th>
-                    <th>Beach Day</th>
-                    <th>Dietary</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="scroll-hint">👉 Swipe left to see all columns</div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Rehearsal</th>
+                        <th>Welcome Party</th>
+                        <th>Wedding</th>
+                        <th>Beach Day</th>
+                        <th>Dietary</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
     `;
 
     latestGuestData.forEach(guestData => {
         html += createTableRow(guestData.guest, guestData.isUpdate);
     });
 
-    html += '</tbody></table>';
+    html += '</tbody></table></div>';
     container.innerHTML = html;
 }
 
