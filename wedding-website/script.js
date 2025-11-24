@@ -149,7 +149,7 @@ function addToCalendar(eventType) {
             start: '20260823T190000Z',
             end: '20260823T220000Z',
             location: 'Pizzeria del Portico, Fasano, Italy',
-            description: 'Intimate rehearsal dinner for close family members. Join us for authentic Italian pizza and good conversation before the big celebration!'
+            description: 'Intimate rehearsal dinner for close family members. Join us for pizza and good conversation before the big celebration!'
         },
         'welcome': {
             title: 'Julie & Samuel - Welcome Party',
@@ -170,7 +170,7 @@ function addToCalendar(eventType) {
             start: '20260826T120000Z',
             end: '20260826T180000Z',
             location: 'Fasano, Italy',
-            description: 'Beach day to relax after the wedding celebration.'
+            description: 'A casual beach day to wrap up the wedding celebrations. Beach chairs will be reserved for the group - we\'ll reach out with the final location and pricing to everyone who RSVPs.'
         }
     };
 
