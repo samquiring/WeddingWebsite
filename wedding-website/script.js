@@ -272,6 +272,37 @@ function toggleCityTile(tile) {
     tile.classList.toggle('expanded');
 }
 
+// Collapsible Section Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const collapsibleSections = document.querySelectorAll('.travel-section.collapsible');
+
+    collapsibleSections.forEach(section => {
+        const title = section.querySelector('.travel-title');
+
+        // Check if it's a touch device
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        if (isTouchDevice) {
+            // Mobile: click to toggle
+            title.addEventListener('click', function(e) {
+                e.preventDefault();
+                section.classList.toggle('expanded');
+            });
+        } else {
+            // Desktop: hover to expand and stay open
+            section.addEventListener('mouseenter', function() {
+                section.classList.add('expanded');
+            });
+
+            // Desktop: click to toggle
+            title.addEventListener('click', function(e) {
+                e.preventDefault();
+                section.classList.toggle('expanded');
+            });
+        }
+    });
+});
+
 // Dress Code Modal
 function openDressCodeModal(eventType) {
     const images = {

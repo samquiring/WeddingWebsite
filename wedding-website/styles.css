@@ -736,6 +736,51 @@ footer .title {
     line-height: 1.8;
 }
 
+/* Collapsible sections for Things To Do */
+.travel-section.collapsible {
+    margin-bottom: 1rem;
+}
+
+.travel-section.collapsible .travel-title {
+    cursor: pointer;
+    padding: 1rem 0;
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    user-select: none;
+}
+
+.travel-section.collapsible .travel-title:after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    font-size: 1.5rem;
+    color: #E47B6A;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.travel-section.collapsible.expanded .travel-title:after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.travel-section.collapsible .travel-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0;
+}
+
+.travel-section.collapsible.expanded .travel-content {
+    max-height: 5000px;
+    padding-top: 2rem;
+}
+
+/* Desktop hover behavior removed - now handled by JavaScript */
+
 .city-tiles {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
