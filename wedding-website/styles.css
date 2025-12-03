@@ -1114,6 +1114,13 @@ a.city-tile.activity-tile:hover .city-tile-overlay {
     margin-bottom: 1rem;
 }
 
+.travel-icon img {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
 .travel-label {
     font-weight: 600;
     margin-bottom: 0.5rem;
