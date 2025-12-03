@@ -843,6 +843,25 @@ footer .title {
     background: rgba(0, 0, 0, 0.5);
 }
 
+/* Activity Tiles (clickable links) */
+a.city-tile.activity-tile {
+    text-decoration: none;
+    display: flex;
+}
+
+a.city-tile.activity-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(228, 123, 106, 0.4);
+}
+
+a.city-tile.activity-tile .city-tile-overlay {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+a.city-tile.activity-tile:hover .city-tile-overlay {
+    background: rgba(0, 0, 0, 0.4);
+}
+
 @media (max-width: 768px) {
     .city-tiles {
         grid-template-columns: 1fr;
