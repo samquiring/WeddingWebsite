@@ -1149,12 +1149,12 @@ a.city-tile.activity-tile:hover .city-tile-overlay {
     line-height: 1.8;
 }
 
-.travel-subheading {
+.travel-content .travel-subheading {
     font-weight: 700;
     color: #E47B6A;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .hotel-links {
