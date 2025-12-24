@@ -549,7 +549,7 @@
                     <!-- FAQ Item 2 -->
                     <div class="faq-item">
                         <h3 class="font-serif text-salmon faq-question">Kann ich jemanden zur Feier mitbringen?</h3>
-                        <p class="faq-answer">Bei Zusage unter dem Menüpunkt Rückmeldeformular wird euch angezeigt, wer mit euch gemeinsam eingeladen ist (beispielsweise eure Partnerin/euer Partner). Wir würden euch bitten, ansonsten keine weiteren Gäste zur Feier mitzubringen.</p>
+                        <p class="faq-answer">Bei Zusage unter dem Menüpunkt Rückmeldung wird euch angezeigt, wer mit euch gemeinsam eingeladen ist (beispielsweise eure Partnerin/euer Partner). Wir würden euch bitten, ansonsten keine weiteren Gäste zur Feier mitzubringen.</p>
                         <p class="faq-answer">Wir bitten außerdem um euer Verständnis, dass für die Hochzeitsfeier keine Kinder eingeplant sind.</p>
                     </div>
 
@@ -567,7 +567,7 @@
                         <p class="faq-answer">Eure Reise nach Italien, um diesen besonderen Tag mit uns zu feiern, ist für uns das schönste Geschenk – daher erwarten wir keine weiteren Aufmerksamkeiten.</p>
                     </div>
 
-                    <p style="margin-top: 3rem; font-weight: 600; color: #E47B6A;">Wenn ihr weitere Fragen habt, meldet euch jederzeit gerne bei uns!</p>
+                    <p style="margin-top: 3rem; font-weight: 600; color: #E47B6A; text-align: center;">Wenn ihr weitere Fragen habt, meldet euch jederzeit gerne bei uns!</p>
                 </div>
             </div>
         </div>
@@ -580,18 +580,17 @@
                 <!-- Step 1: Name Lookup -->
                 <div id="rsvpStep1" class="rsvp-step active">
                     <div class="rsvp-form-card">
-                        <h3 class="font-serif text-salmon faq-question" style="margin-bottom: 1.5rem;">Bitte antwortet bis zum 1. Mai 2026</h3>
-                        <p style="margin-bottom: 2rem; color: #666;">Bitte gebt euren Namen ein, um zu beginnen</p>
+                        <h3 class="font-serif text-salmon faq-question" style="margin-bottom: 1.5rem;">Bitte antworte bis zum 1. Mai 2026</h3>
+                        <p style="margin-bottom: 2rem; color: #666;">Gib deinen Namen ein, um zu beginnen.</p>
 
                         <div class="form-group">
-                            <label for="guestName">Euer Name</label>
+                            <label for="guestName">Dein Name</label>
                             <input type="text" id="guestName" placeholder="Fangt an, euren Namen einzugeben..." autocomplete="off">
                             <div id="nameDropdown" class="name-dropdown"></div>
-                            <p class="form-help">Gebt euren Vor- oder Nachnamen ein</p>
                         </div>
 
                         <div id="partnerPrompt" class="partner-prompt" style="display: none;">
-                            <p class="partner-question">Wir sehen, ihr seid mit <strong id="partnerName"></strong> eingeladen. Möchtet ihr für beide zusagen?</p>
+                            <p class="partner-question">Wir sehen, du bist mit <strong id="partnerName"></strong> eingeladen. Möchtest du für euch beide zusagen?</p>
                             <div class="btn-group">
                                 <button class="btn" onclick="rsvpForBoth()">Ja, für beide zusagen</button>
                                 <button class="btn btn-outline" onclick="rsvpForOne()">Nein, nur für mich</button>
@@ -607,7 +606,7 @@
                     <div class="rsvp-form-card">
                         <button class="btn-back" onclick="goBackToStep1()">← Zurück</button>
 
-                        <h3 class="font-serif text-salmon" style="font-size: 1.75rem; margin-bottom: 2rem; margin-top: 2.5rem; text-align: center;">Eure Zusage</h3>
+                        <h3 class="font-serif text-salmon" style="font-size: 1.75rem; margin-bottom: 2rem; margin-top: 2.5rem; text-align: center;">Deine Zusage</h3>
 
                         <form id="rsvpForm" onsubmit="submitRsvp(event)">
                             <!-- Guest 1 Section -->
@@ -633,7 +632,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Ernährungseinschränkungen</label>
+                                    <label>Ernährungseinschränkungen oder -präferenzen</label>
                                     <div class="checkbox-group">
                                         <label class="checkbox-label">
                                             <input type="checkbox" name="guest1_vegan" id="guest1_vegan">
@@ -662,11 +661,11 @@
                                 <h4 class="guest-section-title" id="guest2Name"></h4>
 
                                 <div class="form-group">
-                                    <label>An welchen Events kannst du teilnehmen?</label>
+                                    <label>An welchen Events wirst du teilnehmen?</label>
                                     <div class="checkbox-group">
                                         <label class="checkbox-label">
                                             <input type="checkbox" name="guest2_welcomeParty" id="guest2_welcomeParty">
-                                            <span>Willkommensparty <span class="event-date-small">(24. Aug.)</span></span>
+                                            <span>Welcome-Party <span class="event-date-small">(24. Aug.)</span></span>
                                         </label>
                                         <label class="checkbox-label">
                                             <input type="checkbox" name="guest2_wedding" id="guest2_wedding">
