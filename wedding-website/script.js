@@ -422,7 +422,6 @@ function displayNameMatches(matches) {
         option.className = 'name-option';
         option.innerHTML = `
             <div class="name-option-name">${guest.fullName}</div>
-            ${guest.email ? `<div class="name-option-email">${guest.email}</div>` : ''}
         `;
 
         option.addEventListener('click', () => selectGuest(guest));
