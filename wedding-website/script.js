@@ -33,10 +33,17 @@ function showPage(pageId) {
     // Show selected page
     document.getElementById(pageId).classList.add('active');
 
+    // Update URL hash
+    history.replaceState(null, '', '#' + pageId);
+
     // Update nav links
     const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => link.classList.remove('active'));
-    event.target.classList.add('active');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('onclick') === "showPage('" + pageId + "')") {
+            link.classList.add('active');
+        }
+    });
 
     // Update mobile page title
     const isGerman = document.documentElement.lang === 'de';
@@ -339,6 +346,15 @@ function openDressCodeModal(eventType) {
     };
     document.addEventListener('keydown', escHandler);
 }
+
+// Navigate to page from URL hash on load
+document.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash.substring(1);
+    const validPages = ['home', 'schedule', 'travel', 'dress-code', 'things', 'faqs', 'rsvp'];
+    if (hash && validPages.includes(hash)) {
+        showPage(hash);
+    }
+});
 
 // Load weather when page loads
 document.addEventListener('DOMContentLoaded', function() {
